@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Puestos de Trabajo - Red Call Center</title>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.js"></script>
+    <style>
+        #network {
+            width: 100%;
+            height: 700px;
+            border: 1px solid lightgray;
+            background-color: #f4f4f4;
+        }
+        #info-box {
+            display: none;
+            padding: 10px;
+            border: 1px solid gray;
+            background: #fff;
+            width: 300px;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2 style="text-align: center;">Puestos de Trabajo - Red Call Center</h2>
+    <div id="network"></div>
+    <div id="info-box"><p id="info-text"></p></div>
+
+    <script>
+        fetch('puestos_red.json')
+            .then(response => response.json())
+            .then(data => {
+                const nodes = new vis.DataSet();
+                const edges = new vis.DataSet();
+
+                // Agregar PCs, canaletas y puertos alineados
+                data.forEach(puesto => {
+                    if (String(puesto.id).startsWith("PC")) {
+                        // Nodo del PC con imagen más pequeña
+                        nodes.add({
+                            id: puesto.id,
+                            label: `🖥️ ${puesto.label}`,
+                            shape: "image",
+                            image: "icons/pc.png",
+                            size: 20,  // Reducir tamaño del PC
+                            color: puesto.color,
+                            x: puesto.x,
+                            y: puesto.y
+                        });
+                    } else if (String(puesto.id).startsWith("CANALETA")) {
+                        // Nodo de canaleta
+                        nodes.add({
+                            id: puesto.id,
+                            label: puesto.label,
+                            shape: "box",
+                            color: "gray",
+                            x: puesto.x,
+                            y: puesto.y
+                        });
+                    } else {
+                        // Nodo del puerto dentro de la canaleta
+                        nodes.add({
+                            id: puesto.id,
+                            label: puesto.label,
+                            shape: "dot",
+                            color: "gray",
+                            x: puesto.x,
+                            y: puesto.y
+                        });
+
+                        // Conectar PC con su canaleta
+                        edges.add({
+                            from: puesto.id.replace("PUERTO_", "PC_"),
+                            to: puesto.id,
+                            label: "Conexión",
+                            color: "black"
+                        });
+                    }
+                });
+
+                const container = document.getElementById('network');
+                const networkData = { nodes: nodes, edges: edges };
+
+                const options = {
+                    layout: {
+                        hierarchical: {
+                            enabled: false
+                        }
+                    },
+                    nodes: { size: 40 },
+                    edges: { arrows: "to", font: { align: "top" } },
+                    physics: { enabled: false }
+                };
+
+                const network = new vis.Network(container, networkData, options);
+
+                network.on("click", function(params) {
+                    if (params.nodes.length > 0) {
+                        const node = nodes.get(params.nodes[0]);
+                        document.getElementById("info-text").innerHTML = node.label;
+                        document.getElementById("info-box").style.display = "block";
+                    }
+                });
+            });
+    </script>
+
+</body>
+</html>

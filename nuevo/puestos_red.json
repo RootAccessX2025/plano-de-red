@@ -1,0 +1,1962 @@
+[
+    {
+        "id": "PC_1",
+        "label": "PC 1",
+        "servicio": "CREDIFINANCIERA",
+        "puerto_red": "GigabitEthernet0/1",
+        "vlan": 10,
+        "color": "green",
+        "x": 0,
+        "y": 0
+    },
+    {
+        "id": "PC_2",
+        "label": "PC 2",
+        "servicio": "CREDIFINANCIERA",
+        "puerto_red": "GigabitEthernet0/2",
+        "vlan": 10,
+        "color": "green",
+        "x": 120,
+        "y": 0
+    },
+    {
+        "id": "PC_3",
+        "label": "PC 3",
+        "servicio": "CREDIFINANCIERA",
+        "puerto_red": "GigabitEthernet0/3",
+        "vlan": 10,
+        "color": "green",
+        "x": 240,
+        "y": 0
+    },
+    {
+        "id": "PC_4",
+        "label": "PC 4",
+        "servicio": "CREDIFINANCIERA",
+        "puerto_red": "GigabitEthernet0/4",
+        "vlan": 10,
+        "color": "green",
+        "x": 360,
+        "y": 0
+    },
+    {
+        "id": "PC_5",
+        "label": "PC 5",
+        "servicio": "CREDIFINANCIERA",
+        "puerto_red": "GigabitEthernet0/5",
+        "vlan": 10,
+        "color": "green",
+        "x": 480,
+        "y": 0
+    },
+    {
+        "id": "PC_6",
+        "label": "PC 6",
+        "servicio": "CREDIFINANCIERA",
+        "puerto_red": "GigabitEthernet0/6",
+        "vlan": 10,
+        "color": "green",
+        "x": 600,
+        "y": 0
+    },
+    {
+        "id": "PC_7",
+        "label": "PC 7",
+        "servicio": "CREDIFINANCIERA",
+        "puerto_red": "GigabitEthernet0/7",
+        "vlan": 10,
+        "color": "green",
+        "x": 720,
+        "y": 0
+    },
+    {
+        "id": "PC_8",
+        "label": "PC 8",
+        "servicio": "CREDIFINANCIERA",
+        "puerto_red": "GigabitEthernet0/8",
+        "vlan": 10,
+        "color": "green",
+        "x": 840,
+        "y": 0
+    },
+    {
+        "id": "PC_9",
+        "label": "PC 9",
+        "servicio": "CREDIFINANCIERA",
+        "puerto_red": "GigabitEthernet0/9",
+        "vlan": 10,
+        "color": "green",
+        "x": 960,
+        "y": 0
+    },
+    {
+        "id": "PC_10",
+        "label": "PC 10",
+        "servicio": "ENDESA",
+        "puerto_red": "GigabitEthernet0/10",
+        "vlan": 20,
+        "color": "orange",
+        "x": 0,
+        "y": 80
+    },
+    {
+        "id": "PC_11",
+        "label": "PC 11",
+        "servicio": "ENDESA",
+        "puerto_red": "GigabitEthernet0/11",
+        "vlan": 20,
+        "color": "orange",
+        "x": 120,
+        "y": 80
+    },
+    {
+        "id": "PC_12",
+        "label": "PC 12",
+        "servicio": "ENDESA",
+        "puerto_red": "GigabitEthernet0/12",
+        "vlan": 20,
+        "color": "orange",
+        "x": 240,
+        "y": 80
+    },
+    {
+        "id": "PC_13",
+        "label": "PC 13",
+        "servicio": "ENDESA",
+        "puerto_red": "GigabitEthernet0/13",
+        "vlan": 20,
+        "color": "orange",
+        "x": 360,
+        "y": 80
+    },
+    {
+        "id": "PC_14",
+        "label": "PC 14",
+        "servicio": "ENDESA",
+        "puerto_red": "GigabitEthernet0/14",
+        "vlan": 20,
+        "color": "orange",
+        "x": 480,
+        "y": 80
+    },
+    {
+        "id": "PC_15",
+        "label": "PC 15",
+        "servicio": "ENDESA",
+        "puerto_red": "GigabitEthernet0/15",
+        "vlan": 20,
+        "color": "orange",
+        "x": 600,
+        "y": 80
+    },
+    {
+        "id": "PC_16",
+        "label": "PC 16",
+        "servicio": "ENDESA",
+        "puerto_red": "GigabitEthernet0/16",
+        "vlan": 20,
+        "color": "orange",
+        "x": 720,
+        "y": 80
+    },
+    {
+        "id": "PC_17",
+        "label": "PC 17",
+        "servicio": "ENDESA",
+        "puerto_red": "GigabitEthernet0/17",
+        "vlan": 20,
+        "color": "orange",
+        "x": 840,
+        "y": 80
+    },
+    {
+        "id": "PC_18",
+        "label": "PC 18",
+        "servicio": "ENDESA",
+        "puerto_red": "GigabitEthernet0/18",
+        "vlan": 20,
+        "color": "orange",
+        "x": 960,
+        "y": 80
+    },
+    {
+        "id": "PC_19",
+        "label": "PC 19",
+        "servicio": "CITAS",
+        "puerto_red": "GigabitEthernet0/19",
+        "vlan": 30,
+        "color": "yellow",
+        "x": 0,
+        "y": 160
+    },
+    {
+        "id": "PC_20",
+        "label": "PC 20",
+        "servicio": "CITAS",
+        "puerto_red": "GigabitEthernet0/20",
+        "vlan": 30,
+        "color": "yellow",
+        "x": 120,
+        "y": 160
+    },
+    {
+        "id": "PC_21",
+        "label": "PC 21",
+        "servicio": "CITAS",
+        "puerto_red": "GigabitEthernet0/21",
+        "vlan": 30,
+        "color": "yellow",
+        "x": 240,
+        "y": 160
+    },
+    {
+        "id": "PC_22",
+        "label": "PC 22",
+        "servicio": "CITAS",
+        "puerto_red": "GigabitEthernet0/22",
+        "vlan": 30,
+        "color": "yellow",
+        "x": 360,
+        "y": 160
+    },
+    {
+        "id": "PC_23",
+        "label": "PC 23",
+        "servicio": "CITAS",
+        "puerto_red": "GigabitEthernet0/23",
+        "vlan": 30,
+        "color": "yellow",
+        "x": 480,
+        "y": 160
+    },
+    {
+        "id": "PC_24",
+        "label": "PC 24",
+        "servicio": "CITAS",
+        "puerto_red": "GigabitEthernet0/24",
+        "vlan": 30,
+        "color": "yellow",
+        "x": 600,
+        "y": 160
+    },
+    {
+        "id": "PC_25",
+        "label": "PC 25",
+        "servicio": "CITAS",
+        "puerto_red": "GigabitEthernet0/25",
+        "vlan": 30,
+        "color": "yellow",
+        "x": 720,
+        "y": 160
+    },
+    {
+        "id": "PC_26",
+        "label": "PC 26",
+        "servicio": "CITAS",
+        "puerto_red": "GigabitEthernet0/26",
+        "vlan": 30,
+        "color": "yellow",
+        "x": 840,
+        "y": 160
+    },
+    {
+        "id": "PC_27",
+        "label": "PC 27",
+        "servicio": "CITAS",
+        "puerto_red": "GigabitEthernet0/27",
+        "vlan": 30,
+        "color": "yellow",
+        "x": 960,
+        "y": 160
+    },
+    {
+        "id": "PC_28",
+        "label": "PC 28",
+        "servicio": "CUADRO MEDICO",
+        "puerto_red": "GigabitEthernet0/28",
+        "vlan": 40,
+        "color": "purple",
+        "x": 0,
+        "y": 240
+    },
+    {
+        "id": "PC_29",
+        "label": "PC 29",
+        "servicio": "CUADRO MEDICO",
+        "puerto_red": "GigabitEthernet0/29",
+        "vlan": 40,
+        "color": "purple",
+        "x": 120,
+        "y": 240
+    },
+    {
+        "id": "PC_30",
+        "label": "PC 30",
+        "servicio": "CUADRO MEDICO",
+        "puerto_red": "GigabitEthernet0/30",
+        "vlan": 40,
+        "color": "purple",
+        "x": 240,
+        "y": 240
+    },
+    {
+        "id": "PC_31",
+        "label": "PC 31",
+        "servicio": "CUADRO MEDICO",
+        "puerto_red": "GigabitEthernet0/31",
+        "vlan": 40,
+        "color": "purple",
+        "x": 360,
+        "y": 240
+    },
+    {
+        "id": "PC_32",
+        "label": "PC 32",
+        "servicio": "CUADRO MEDICO",
+        "puerto_red": "GigabitEthernet0/32",
+        "vlan": 40,
+        "color": "purple",
+        "x": 480,
+        "y": 240
+    },
+    {
+        "id": "PC_33",
+        "label": "PC 33",
+        "servicio": "CUADRO MEDICO",
+        "puerto_red": "GigabitEthernet0/33",
+        "vlan": 40,
+        "color": "purple",
+        "x": 600,
+        "y": 240
+    },
+    {
+        "id": "PC_34",
+        "label": "PC 34",
+        "servicio": "CUADRO MEDICO",
+        "puerto_red": "GigabitEthernet0/34",
+        "vlan": 40,
+        "color": "purple",
+        "x": 720,
+        "y": 240
+    },
+    {
+        "id": "PC_35",
+        "label": "PC 35",
+        "servicio": "CUADRO MEDICO",
+        "puerto_red": "GigabitEthernet0/35",
+        "vlan": 40,
+        "color": "purple",
+        "x": 840,
+        "y": 240
+    },
+    {
+        "id": "PC_36",
+        "label": "PC 36",
+        "servicio": "CUADRO MEDICO",
+        "puerto_red": "GigabitEthernet0/36",
+        "vlan": 40,
+        "color": "purple",
+        "x": 960,
+        "y": 240
+    },
+    {
+        "id": "PC_37",
+        "label": "PC 37",
+        "servicio": "EURONA",
+        "puerto_red": "GigabitEthernet0/37",
+        "vlan": 50,
+        "color": "blue",
+        "x": 0,
+        "y": 320
+    },
+    {
+        "id": "PC_38",
+        "label": "PC 38",
+        "servicio": "EURONA",
+        "puerto_red": "GigabitEthernet0/38",
+        "vlan": 50,
+        "color": "blue",
+        "x": 120,
+        "y": 320
+    },
+    {
+        "id": "PC_39",
+        "label": "PC 39",
+        "servicio": "EURONA",
+        "puerto_red": "GigabitEthernet0/39",
+        "vlan": 50,
+        "color": "blue",
+        "x": 240,
+        "y": 320
+    },
+    {
+        "id": "PC_40",
+        "label": "PC 40",
+        "servicio": "EURONA",
+        "puerto_red": "GigabitEthernet0/40",
+        "vlan": 50,
+        "color": "blue",
+        "x": 360,
+        "y": 320
+    },
+    {
+        "id": "PC_41",
+        "label": "PC 41",
+        "servicio": "EURONA",
+        "puerto_red": "GigabitEthernet0/41",
+        "vlan": 50,
+        "color": "blue",
+        "x": 480,
+        "y": 320
+    },
+    {
+        "id": "PC_42",
+        "label": "PC 42",
+        "servicio": "EURONA",
+        "puerto_red": "GigabitEthernet0/42",
+        "vlan": 50,
+        "color": "blue",
+        "x": 600,
+        "y": 320
+    },
+    {
+        "id": "PC_43",
+        "label": "PC 43",
+        "servicio": "EURONA",
+        "puerto_red": "GigabitEthernet0/43",
+        "vlan": 50,
+        "color": "blue",
+        "x": 720,
+        "y": 320
+    },
+    {
+        "id": "PC_44",
+        "label": "PC 44",
+        "servicio": "EURONA",
+        "puerto_red": "GigabitEthernet0/44",
+        "vlan": 50,
+        "color": "blue",
+        "x": 840,
+        "y": 320
+    },
+    {
+        "id": "PC_45",
+        "label": "PC 45",
+        "servicio": "EURONA",
+        "puerto_red": "GigabitEthernet0/45",
+        "vlan": 50,
+        "color": "blue",
+        "x": 960,
+        "y": 320
+    },
+    {
+        "id": "PC_46",
+        "label": "PC 46",
+        "servicio": "CREDIFINANCIERA",
+        "puerto_red": "GigabitEthernet0/46",
+        "vlan": 10,
+        "color": "green",
+        "x": 0,
+        "y": 400
+    },
+    {
+        "id": "PC_47",
+        "label": "PC 47",
+        "servicio": "CREDIFINANCIERA",
+        "puerto_red": "GigabitEthernet0/47",
+        "vlan": 10,
+        "color": "green",
+        "x": 120,
+        "y": 400
+    },
+    {
+        "id": "PC_48",
+        "label": "PC 48",
+        "servicio": "CREDIFINANCIERA",
+        "puerto_red": "GigabitEthernet0/48",
+        "vlan": 10,
+        "color": "green",
+        "x": 240,
+        "y": 400
+    },
+    {
+        "id": "PC_49",
+        "label": "PC 49",
+        "servicio": "CREDIFINANCIERA",
+        "puerto_red": "GigabitEthernet0/49",
+        "vlan": 10,
+        "color": "green",
+        "x": 360,
+        "y": 400
+    },
+    {
+        "id": "PC_50",
+        "label": "PC 50",
+        "servicio": "CREDIFINANCIERA",
+        "puerto_red": "GigabitEthernet0/50",
+        "vlan": 10,
+        "color": "green",
+        "x": 480,
+        "y": 400
+    },
+    {
+        "id": "PC_51",
+        "label": "PC 51",
+        "servicio": "CREDIFINANCIERA",
+        "puerto_red": "GigabitEthernet0/51",
+        "vlan": 10,
+        "color": "green",
+        "x": 600,
+        "y": 400
+    },
+    {
+        "id": "PC_52",
+        "label": "PC 52",
+        "servicio": "CREDIFINANCIERA",
+        "puerto_red": "GigabitEthernet0/52",
+        "vlan": 10,
+        "color": "green",
+        "x": 720,
+        "y": 400
+    },
+    {
+        "id": "PC_53",
+        "label": "PC 53",
+        "servicio": "CREDIFINANCIERA",
+        "puerto_red": "GigabitEthernet0/53",
+        "vlan": 10,
+        "color": "green",
+        "x": 840,
+        "y": 400
+    },
+    {
+        "id": "PC_54",
+        "label": "PC 54",
+        "servicio": "CREDIFINANCIERA",
+        "puerto_red": "GigabitEthernet0/54",
+        "vlan": 10,
+        "color": "green",
+        "x": 960,
+        "y": 400
+    },
+    {
+        "id": "PC_55",
+        "label": "PC 55",
+        "servicio": "ENDESA",
+        "puerto_red": "GigabitEthernet0/55",
+        "vlan": 20,
+        "color": "orange",
+        "x": 0,
+        "y": 480
+    },
+    {
+        "id": "PC_56",
+        "label": "PC 56",
+        "servicio": "ENDESA",
+        "puerto_red": "GigabitEthernet0/56",
+        "vlan": 20,
+        "color": "orange",
+        "x": 120,
+        "y": 480
+    },
+    {
+        "id": "PC_57",
+        "label": "PC 57",
+        "servicio": "ENDESA",
+        "puerto_red": "GigabitEthernet0/57",
+        "vlan": 20,
+        "color": "orange",
+        "x": 240,
+        "y": 480
+    },
+    {
+        "id": "PC_58",
+        "label": "PC 58",
+        "servicio": "ENDESA",
+        "puerto_red": "GigabitEthernet0/58",
+        "vlan": 20,
+        "color": "orange",
+        "x": 360,
+        "y": 480
+    },
+    {
+        "id": "PC_59",
+        "label": "PC 59",
+        "servicio": "ENDESA",
+        "puerto_red": "GigabitEthernet0/59",
+        "vlan": 20,
+        "color": "orange",
+        "x": 480,
+        "y": 480
+    },
+    {
+        "id": "PC_60",
+        "label": "PC 60",
+        "servicio": "ENDESA",
+        "puerto_red": "GigabitEthernet0/60",
+        "vlan": 20,
+        "color": "orange",
+        "x": 600,
+        "y": 480
+    },
+    {
+        "id": "PC_61",
+        "label": "PC 61",
+        "servicio": "ENDESA",
+        "puerto_red": "GigabitEthernet0/61",
+        "vlan": 20,
+        "color": "orange",
+        "x": 720,
+        "y": 480
+    },
+    {
+        "id": "PC_62",
+        "label": "PC 62",
+        "servicio": "ENDESA",
+        "puerto_red": "GigabitEthernet0/62",
+        "vlan": 20,
+        "color": "orange",
+        "x": 840,
+        "y": 480
+    },
+    {
+        "id": "PC_63",
+        "label": "PC 63",
+        "servicio": "ENDESA",
+        "puerto_red": "GigabitEthernet0/63",
+        "vlan": 20,
+        "color": "orange",
+        "x": 960,
+        "y": 480
+    },
+    {
+        "id": "PC_64",
+        "label": "PC 64",
+        "servicio": "CITAS",
+        "puerto_red": "GigabitEthernet0/64",
+        "vlan": 30,
+        "color": "yellow",
+        "x": 0,
+        "y": 560
+    },
+    {
+        "id": "PC_65",
+        "label": "PC 65",
+        "servicio": "CITAS",
+        "puerto_red": "GigabitEthernet0/65",
+        "vlan": 30,
+        "color": "yellow",
+        "x": 120,
+        "y": 560
+    },
+    {
+        "id": "PC_66",
+        "label": "PC 66",
+        "servicio": "CITAS",
+        "puerto_red": "GigabitEthernet0/66",
+        "vlan": 30,
+        "color": "yellow",
+        "x": 240,
+        "y": 560
+    },
+    {
+        "id": "PC_67",
+        "label": "PC 67",
+        "servicio": "CITAS",
+        "puerto_red": "GigabitEthernet0/67",
+        "vlan": 30,
+        "color": "yellow",
+        "x": 360,
+        "y": 560
+    },
+    {
+        "id": "PC_68",
+        "label": "PC 68",
+        "servicio": "CITAS",
+        "puerto_red": "GigabitEthernet0/68",
+        "vlan": 30,
+        "color": "yellow",
+        "x": 480,
+        "y": 560
+    },
+    {
+        "id": "PC_69",
+        "label": "PC 69",
+        "servicio": "CITAS",
+        "puerto_red": "GigabitEthernet0/69",
+        "vlan": 30,
+        "color": "yellow",
+        "x": 600,
+        "y": 560
+    },
+    {
+        "id": "PC_70",
+        "label": "PC 70",
+        "servicio": "CITAS",
+        "puerto_red": "GigabitEthernet0/70",
+        "vlan": 30,
+        "color": "yellow",
+        "x": 720,
+        "y": 560
+    },
+    {
+        "id": "PC_71",
+        "label": "PC 71",
+        "servicio": "CITAS",
+        "puerto_red": "GigabitEthernet0/71",
+        "vlan": 30,
+        "color": "yellow",
+        "x": 840,
+        "y": 560
+    },
+    {
+        "id": "PC_72",
+        "label": "PC 72",
+        "servicio": "CITAS",
+        "puerto_red": "GigabitEthernet0/72",
+        "vlan": 30,
+        "color": "yellow",
+        "x": 960,
+        "y": 560
+    },
+    {
+        "id": "PC_73",
+        "label": "PC 73",
+        "servicio": "CUADRO MEDICO",
+        "puerto_red": "GigabitEthernet0/73",
+        "vlan": 40,
+        "color": "purple",
+        "x": 0,
+        "y": 640
+    },
+    {
+        "id": "PC_74",
+        "label": "PC 74",
+        "servicio": "CUADRO MEDICO",
+        "puerto_red": "GigabitEthernet0/74",
+        "vlan": 40,
+        "color": "purple",
+        "x": 120,
+        "y": 640
+    },
+    {
+        "id": "PC_75",
+        "label": "PC 75",
+        "servicio": "CUADRO MEDICO",
+        "puerto_red": "GigabitEthernet0/75",
+        "vlan": 40,
+        "color": "purple",
+        "x": 240,
+        "y": 640
+    },
+    {
+        "id": "PC_76",
+        "label": "PC 76",
+        "servicio": "CUADRO MEDICO",
+        "puerto_red": "GigabitEthernet0/76",
+        "vlan": 40,
+        "color": "purple",
+        "x": 360,
+        "y": 640
+    },
+    {
+        "id": "PC_77",
+        "label": "PC 77",
+        "servicio": "CUADRO MEDICO",
+        "puerto_red": "GigabitEthernet0/77",
+        "vlan": 40,
+        "color": "purple",
+        "x": 480,
+        "y": 640
+    },
+    {
+        "id": "PC_78",
+        "label": "PC 78",
+        "servicio": "CUADRO MEDICO",
+        "puerto_red": "GigabitEthernet0/78",
+        "vlan": 40,
+        "color": "purple",
+        "x": 600,
+        "y": 640
+    },
+    {
+        "id": "PC_79",
+        "label": "PC 79",
+        "servicio": "CUADRO MEDICO",
+        "puerto_red": "GigabitEthernet0/79",
+        "vlan": 40,
+        "color": "purple",
+        "x": 720,
+        "y": 640
+    },
+    {
+        "id": "PC_80",
+        "label": "PC 80",
+        "servicio": "CUADRO MEDICO",
+        "puerto_red": "GigabitEthernet0/80",
+        "vlan": 40,
+        "color": "purple",
+        "x": 840,
+        "y": 640
+    },
+    {
+        "id": "PC_81",
+        "label": "PC 81",
+        "servicio": "CUADRO MEDICO",
+        "puerto_red": "GigabitEthernet0/81",
+        "vlan": 40,
+        "color": "purple",
+        "x": 960,
+        "y": 640
+    },
+    {
+        "id": "PC_82",
+        "label": "PC 82",
+        "servicio": "EURONA",
+        "puerto_red": "GigabitEthernet0/82",
+        "vlan": 50,
+        "color": "blue",
+        "x": 0,
+        "y": 720
+    },
+    {
+        "id": "PC_83",
+        "label": "PC 83",
+        "servicio": "EURONA",
+        "puerto_red": "GigabitEthernet0/83",
+        "vlan": 50,
+        "color": "blue",
+        "x": 120,
+        "y": 720
+    },
+    {
+        "id": "PC_84",
+        "label": "PC 84",
+        "servicio": "EURONA",
+        "puerto_red": "GigabitEthernet0/84",
+        "vlan": 50,
+        "color": "blue",
+        "x": 240,
+        "y": 720
+    },
+    {
+        "id": "PC_85",
+        "label": "PC 85",
+        "servicio": "EURONA",
+        "puerto_red": "GigabitEthernet0/85",
+        "vlan": 50,
+        "color": "blue",
+        "x": 360,
+        "y": 720
+    },
+    {
+        "id": "PC_86",
+        "label": "PC 86",
+        "servicio": "EURONA",
+        "puerto_red": "GigabitEthernet0/86",
+        "vlan": 50,
+        "color": "blue",
+        "x": 480,
+        "y": 720
+    },
+    {
+        "id": "PC_87",
+        "label": "PC 87",
+        "servicio": "EURONA",
+        "puerto_red": "GigabitEthernet0/87",
+        "vlan": 50,
+        "color": "blue",
+        "x": 600,
+        "y": 720
+    },
+    {
+        "id": "PC_88",
+        "label": "PC 88",
+        "servicio": "EURONA",
+        "puerto_red": "GigabitEthernet0/88",
+        "vlan": 50,
+        "color": "blue",
+        "x": 720,
+        "y": 720
+    },
+    {
+        "id": "PC_89",
+        "label": "PC 89",
+        "servicio": "EURONA",
+        "puerto_red": "GigabitEthernet0/89",
+        "vlan": 50,
+        "color": "blue",
+        "x": 840,
+        "y": 720
+    },
+    {
+        "id": "PC_90",
+        "label": "PC 90",
+        "servicio": "EURONA",
+        "puerto_red": "GigabitEthernet0/90",
+        "vlan": 50,
+        "color": "blue",
+        "x": 960,
+        "y": 720
+    },
+    {
+        "id": "PC_91",
+        "label": "PC 91",
+        "servicio": "CREDIFINANCIERA",
+        "puerto_red": "GigabitEthernet0/91",
+        "vlan": 10,
+        "color": "green",
+        "x": 1380,
+        "y": 0
+    },
+    {
+        "id": "PC_92",
+        "label": "PC 92",
+        "servicio": "CREDIFINANCIERA",
+        "puerto_red": "GigabitEthernet0/92",
+        "vlan": 10,
+        "color": "green",
+        "x": 1500,
+        "y": 0
+    },
+    {
+        "id": "PC_93",
+        "label": "PC 93",
+        "servicio": "CREDIFINANCIERA",
+        "puerto_red": "GigabitEthernet0/93",
+        "vlan": 10,
+        "color": "green",
+        "x": 1620,
+        "y": 0
+    },
+    {
+        "id": "PC_94",
+        "label": "PC 94",
+        "servicio": "CREDIFINANCIERA",
+        "puerto_red": "GigabitEthernet0/94",
+        "vlan": 10,
+        "color": "green",
+        "x": 1740,
+        "y": 0
+    },
+    {
+        "id": "PC_95",
+        "label": "PC 95",
+        "servicio": "CREDIFINANCIERA",
+        "puerto_red": "GigabitEthernet0/95",
+        "vlan": 10,
+        "color": "green",
+        "x": 1860,
+        "y": 0
+    },
+    {
+        "id": "PC_96",
+        "label": "PC 96",
+        "servicio": "CREDIFINANCIERA",
+        "puerto_red": "GigabitEthernet0/96",
+        "vlan": 10,
+        "color": "green",
+        "x": 1980,
+        "y": 0
+    },
+    {
+        "id": "PC_97",
+        "label": "PC 97",
+        "servicio": "CREDIFINANCIERA",
+        "puerto_red": "GigabitEthernet0/97",
+        "vlan": 10,
+        "color": "green",
+        "x": 2100,
+        "y": 0
+    },
+    {
+        "id": "PC_98",
+        "label": "PC 98",
+        "servicio": "CREDIFINANCIERA",
+        "puerto_red": "GigabitEthernet0/98",
+        "vlan": 10,
+        "color": "green",
+        "x": 2220,
+        "y": 0
+    },
+    {
+        "id": "PC_99",
+        "label": "PC 99",
+        "servicio": "CREDIFINANCIERA",
+        "puerto_red": "GigabitEthernet0/99",
+        "vlan": 10,
+        "color": "green",
+        "x": 2340,
+        "y": 0
+    },
+    {
+        "id": "PC_100",
+        "label": "PC 100",
+        "servicio": "ENDESA",
+        "puerto_red": "GigabitEthernet0/100",
+        "vlan": 20,
+        "color": "orange",
+        "x": 1380,
+        "y": 80
+    },
+    {
+        "id": "PC_101",
+        "label": "PC 101",
+        "servicio": "ENDESA",
+        "puerto_red": "GigabitEthernet0/101",
+        "vlan": 20,
+        "color": "orange",
+        "x": 1500,
+        "y": 80
+    },
+    {
+        "id": "PC_102",
+        "label": "PC 102",
+        "servicio": "ENDESA",
+        "puerto_red": "GigabitEthernet0/102",
+        "vlan": 20,
+        "color": "orange",
+        "x": 1620,
+        "y": 80
+    },
+    {
+        "id": "PC_103",
+        "label": "PC 103",
+        "servicio": "ENDESA",
+        "puerto_red": "GigabitEthernet0/103",
+        "vlan": 20,
+        "color": "orange",
+        "x": 1740,
+        "y": 80
+    },
+    {
+        "id": "PC_104",
+        "label": "PC 104",
+        "servicio": "ENDESA",
+        "puerto_red": "GigabitEthernet0/104",
+        "vlan": 20,
+        "color": "orange",
+        "x": 1860,
+        "y": 80
+    },
+    {
+        "id": "PC_105",
+        "label": "PC 105",
+        "servicio": "ENDESA",
+        "puerto_red": "GigabitEthernet0/105",
+        "vlan": 20,
+        "color": "orange",
+        "x": 1980,
+        "y": 80
+    },
+    {
+        "id": "PC_106",
+        "label": "PC 106",
+        "servicio": "ENDESA",
+        "puerto_red": "GigabitEthernet0/106",
+        "vlan": 20,
+        "color": "orange",
+        "x": 2100,
+        "y": 80
+    },
+    {
+        "id": "PC_107",
+        "label": "PC 107",
+        "servicio": "ENDESA",
+        "puerto_red": "GigabitEthernet0/107",
+        "vlan": 20,
+        "color": "orange",
+        "x": 2220,
+        "y": 80
+    },
+    {
+        "id": "PC_108",
+        "label": "PC 108",
+        "servicio": "ENDESA",
+        "puerto_red": "GigabitEthernet0/108",
+        "vlan": 20,
+        "color": "orange",
+        "x": 2340,
+        "y": 80
+    },
+    {
+        "id": "PC_109",
+        "label": "PC 109",
+        "servicio": "CITAS",
+        "puerto_red": "GigabitEthernet0/109",
+        "vlan": 30,
+        "color": "yellow",
+        "x": 1380,
+        "y": 160
+    },
+    {
+        "id": "PC_110",
+        "label": "PC 110",
+        "servicio": "CITAS",
+        "puerto_red": "GigabitEthernet0/110",
+        "vlan": 30,
+        "color": "yellow",
+        "x": 1500,
+        "y": 160
+    },
+    {
+        "id": "PC_111",
+        "label": "PC 111",
+        "servicio": "CITAS",
+        "puerto_red": "GigabitEthernet0/111",
+        "vlan": 30,
+        "color": "yellow",
+        "x": 1620,
+        "y": 160
+    },
+    {
+        "id": "PC_112",
+        "label": "PC 112",
+        "servicio": "CITAS",
+        "puerto_red": "GigabitEthernet0/112",
+        "vlan": 30,
+        "color": "yellow",
+        "x": 1740,
+        "y": 160
+    },
+    {
+        "id": "PC_113",
+        "label": "PC 113",
+        "servicio": "CITAS",
+        "puerto_red": "GigabitEthernet0/113",
+        "vlan": 30,
+        "color": "yellow",
+        "x": 1860,
+        "y": 160
+    },
+    {
+        "id": "PC_114",
+        "label": "PC 114",
+        "servicio": "CITAS",
+        "puerto_red": "GigabitEthernet0/114",
+        "vlan": 30,
+        "color": "yellow",
+        "x": 1980,
+        "y": 160
+    },
+    {
+        "id": "PC_115",
+        "label": "PC 115",
+        "servicio": "CITAS",
+        "puerto_red": "GigabitEthernet0/115",
+        "vlan": 30,
+        "color": "yellow",
+        "x": 2100,
+        "y": 160
+    },
+    {
+        "id": "PC_116",
+        "label": "PC 116",
+        "servicio": "CITAS",
+        "puerto_red": "GigabitEthernet0/116",
+        "vlan": 30,
+        "color": "yellow",
+        "x": 2220,
+        "y": 160
+    },
+    {
+        "id": "PC_117",
+        "label": "PC 117",
+        "servicio": "CITAS",
+        "puerto_red": "GigabitEthernet0/117",
+        "vlan": 30,
+        "color": "yellow",
+        "x": 2340,
+        "y": 160
+    },
+    {
+        "id": "PC_118",
+        "label": "PC 118",
+        "servicio": "CUADRO MEDICO",
+        "puerto_red": "GigabitEthernet0/118",
+        "vlan": 40,
+        "color": "purple",
+        "x": 1380,
+        "y": 240
+    },
+    {
+        "id": "PC_119",
+        "label": "PC 119",
+        "servicio": "CUADRO MEDICO",
+        "puerto_red": "GigabitEthernet0/119",
+        "vlan": 40,
+        "color": "purple",
+        "x": 1500,
+        "y": 240
+    },
+    {
+        "id": "PC_120",
+        "label": "PC 120",
+        "servicio": "CUADRO MEDICO",
+        "puerto_red": "GigabitEthernet0/120",
+        "vlan": 40,
+        "color": "purple",
+        "x": 1620,
+        "y": 240
+    },
+    {
+        "id": "PC_121",
+        "label": "PC 121",
+        "servicio": "CUADRO MEDICO",
+        "puerto_red": "GigabitEthernet0/121",
+        "vlan": 40,
+        "color": "purple",
+        "x": 1740,
+        "y": 240
+    },
+    {
+        "id": "PC_122",
+        "label": "PC 122",
+        "servicio": "CUADRO MEDICO",
+        "puerto_red": "GigabitEthernet0/122",
+        "vlan": 40,
+        "color": "purple",
+        "x": 1860,
+        "y": 240
+    },
+    {
+        "id": "PC_123",
+        "label": "PC 123",
+        "servicio": "CUADRO MEDICO",
+        "puerto_red": "GigabitEthernet0/123",
+        "vlan": 40,
+        "color": "purple",
+        "x": 1980,
+        "y": 240
+    },
+    {
+        "id": "PC_124",
+        "label": "PC 124",
+        "servicio": "CUADRO MEDICO",
+        "puerto_red": "GigabitEthernet0/124",
+        "vlan": 40,
+        "color": "purple",
+        "x": 2100,
+        "y": 240
+    },
+    {
+        "id": "PC_125",
+        "label": "PC 125",
+        "servicio": "CUADRO MEDICO",
+        "puerto_red": "GigabitEthernet0/125",
+        "vlan": 40,
+        "color": "purple",
+        "x": 2220,
+        "y": 240
+    },
+    {
+        "id": "PC_126",
+        "label": "PC 126",
+        "servicio": "CUADRO MEDICO",
+        "puerto_red": "GigabitEthernet0/126",
+        "vlan": 40,
+        "color": "purple",
+        "x": 2340,
+        "y": 240
+    },
+    {
+        "id": "PC_127",
+        "label": "PC 127",
+        "servicio": "EURONA",
+        "puerto_red": "GigabitEthernet0/127",
+        "vlan": 50,
+        "color": "blue",
+        "x": 1380,
+        "y": 320
+    },
+    {
+        "id": "PC_128",
+        "label": "PC 128",
+        "servicio": "EURONA",
+        "puerto_red": "GigabitEthernet0/128",
+        "vlan": 50,
+        "color": "blue",
+        "x": 1500,
+        "y": 320
+    },
+    {
+        "id": "PC_129",
+        "label": "PC 129",
+        "servicio": "EURONA",
+        "puerto_red": "GigabitEthernet0/129",
+        "vlan": 50,
+        "color": "blue",
+        "x": 1620,
+        "y": 320
+    },
+    {
+        "id": "PC_130",
+        "label": "PC 130",
+        "servicio": "EURONA",
+        "puerto_red": "GigabitEthernet0/130",
+        "vlan": 50,
+        "color": "blue",
+        "x": 1740,
+        "y": 320
+    },
+    {
+        "id": "PC_131",
+        "label": "PC 131",
+        "servicio": "EURONA",
+        "puerto_red": "GigabitEthernet0/131",
+        "vlan": 50,
+        "color": "blue",
+        "x": 1860,
+        "y": 320
+    },
+    {
+        "id": "PC_132",
+        "label": "PC 132",
+        "servicio": "EURONA",
+        "puerto_red": "GigabitEthernet0/132",
+        "vlan": 50,
+        "color": "blue",
+        "x": 1980,
+        "y": 320
+    },
+    {
+        "id": "PC_133",
+        "label": "PC 133",
+        "servicio": "EURONA",
+        "puerto_red": "GigabitEthernet0/133",
+        "vlan": 50,
+        "color": "blue",
+        "x": 2100,
+        "y": 320
+    },
+    {
+        "id": "PC_134",
+        "label": "PC 134",
+        "servicio": "EURONA",
+        "puerto_red": "GigabitEthernet0/134",
+        "vlan": 50,
+        "color": "blue",
+        "x": 2220,
+        "y": 320
+    },
+    {
+        "id": "PC_135",
+        "label": "PC 135",
+        "servicio": "EURONA",
+        "puerto_red": "GigabitEthernet0/135",
+        "vlan": 50,
+        "color": "blue",
+        "x": 2340,
+        "y": 320
+    },
+    {
+        "id": "PC_136",
+        "label": "PC 136",
+        "servicio": "CREDIFINANCIERA",
+        "puerto_red": "GigabitEthernet0/136",
+        "vlan": 10,
+        "color": "green",
+        "x": 1380,
+        "y": 400
+    },
+    {
+        "id": "PC_137",
+        "label": "PC 137",
+        "servicio": "CREDIFINANCIERA",
+        "puerto_red": "GigabitEthernet0/137",
+        "vlan": 10,
+        "color": "green",
+        "x": 1500,
+        "y": 400
+    },
+    {
+        "id": "PC_138",
+        "label": "PC 138",
+        "servicio": "CREDIFINANCIERA",
+        "puerto_red": "GigabitEthernet0/138",
+        "vlan": 10,
+        "color": "green",
+        "x": 1620,
+        "y": 400
+    },
+    {
+        "id": "PC_139",
+        "label": "PC 139",
+        "servicio": "CREDIFINANCIERA",
+        "puerto_red": "GigabitEthernet0/139",
+        "vlan": 10,
+        "color": "green",
+        "x": 1740,
+        "y": 400
+    },
+    {
+        "id": "PC_140",
+        "label": "PC 140",
+        "servicio": "CREDIFINANCIERA",
+        "puerto_red": "GigabitEthernet0/140",
+        "vlan": 10,
+        "color": "green",
+        "x": 1860,
+        "y": 400
+    },
+    {
+        "id": "PC_141",
+        "label": "PC 141",
+        "servicio": "CREDIFINANCIERA",
+        "puerto_red": "GigabitEthernet0/141",
+        "vlan": 10,
+        "color": "green",
+        "x": 1980,
+        "y": 400
+    },
+    {
+        "id": "PC_142",
+        "label": "PC 142",
+        "servicio": "CREDIFINANCIERA",
+        "puerto_red": "GigabitEthernet0/142",
+        "vlan": 10,
+        "color": "green",
+        "x": 2100,
+        "y": 400
+    },
+    {
+        "id": "PC_143",
+        "label": "PC 143",
+        "servicio": "CREDIFINANCIERA",
+        "puerto_red": "GigabitEthernet0/143",
+        "vlan": 10,
+        "color": "green",
+        "x": 2220,
+        "y": 400
+    },
+    {
+        "id": "PC_144",
+        "label": "PC 144",
+        "servicio": "CREDIFINANCIERA",
+        "puerto_red": "GigabitEthernet0/144",
+        "vlan": 10,
+        "color": "green",
+        "x": 2340,
+        "y": 400
+    },
+    {
+        "id": "PC_145",
+        "label": "PC 145",
+        "servicio": "ENDESA",
+        "puerto_red": "GigabitEthernet0/145",
+        "vlan": 20,
+        "color": "orange",
+        "x": 1380,
+        "y": 480
+    },
+    {
+        "id": "PC_146",
+        "label": "PC 146",
+        "servicio": "ENDESA",
+        "puerto_red": "GigabitEthernet0/146",
+        "vlan": 20,
+        "color": "orange",
+        "x": 1500,
+        "y": 480
+    },
+    {
+        "id": "PC_147",
+        "label": "PC 147",
+        "servicio": "ENDESA",
+        "puerto_red": "GigabitEthernet0/147",
+        "vlan": 20,
+        "color": "orange",
+        "x": 1620,
+        "y": 480
+    },
+    {
+        "id": "PC_148",
+        "label": "PC 148",
+        "servicio": "ENDESA",
+        "puerto_red": "GigabitEthernet0/148",
+        "vlan": 20,
+        "color": "orange",
+        "x": 1740,
+        "y": 480
+    },
+    {
+        "id": "PC_149",
+        "label": "PC 149",
+        "servicio": "ENDESA",
+        "puerto_red": "GigabitEthernet0/149",
+        "vlan": 20,
+        "color": "orange",
+        "x": 1860,
+        "y": 480
+    },
+    {
+        "id": "PC_150",
+        "label": "PC 150",
+        "servicio": "ENDESA",
+        "puerto_red": "GigabitEthernet0/150",
+        "vlan": 20,
+        "color": "orange",
+        "x": 1980,
+        "y": 480
+    },
+    {
+        "id": "PC_151",
+        "label": "PC 151",
+        "servicio": "ENDESA",
+        "puerto_red": "GigabitEthernet0/151",
+        "vlan": 20,
+        "color": "orange",
+        "x": 2100,
+        "y": 480
+    },
+    {
+        "id": "PC_152",
+        "label": "PC 152",
+        "servicio": "ENDESA",
+        "puerto_red": "GigabitEthernet0/152",
+        "vlan": 20,
+        "color": "orange",
+        "x": 2220,
+        "y": 480
+    },
+    {
+        "id": "PC_153",
+        "label": "PC 153",
+        "servicio": "ENDESA",
+        "puerto_red": "GigabitEthernet0/153",
+        "vlan": 20,
+        "color": "orange",
+        "x": 2340,
+        "y": 480
+    },
+    {
+        "id": "PC_154",
+        "label": "PC 154",
+        "servicio": "CITAS",
+        "puerto_red": "GigabitEthernet0/154",
+        "vlan": 30,
+        "color": "yellow",
+        "x": 1380,
+        "y": 560
+    },
+    {
+        "id": "PC_155",
+        "label": "PC 155",
+        "servicio": "CITAS",
+        "puerto_red": "GigabitEthernet0/155",
+        "vlan": 30,
+        "color": "yellow",
+        "x": 1500,
+        "y": 560
+    },
+    {
+        "id": "PC_156",
+        "label": "PC 156",
+        "servicio": "CITAS",
+        "puerto_red": "GigabitEthernet0/156",
+        "vlan": 30,
+        "color": "yellow",
+        "x": 1620,
+        "y": 560
+    },
+    {
+        "id": "PC_157",
+        "label": "PC 157",
+        "servicio": "CITAS",
+        "puerto_red": "GigabitEthernet0/157",
+        "vlan": 30,
+        "color": "yellow",
+        "x": 1740,
+        "y": 560
+    },
+    {
+        "id": "PC_158",
+        "label": "PC 158",
+        "servicio": "CITAS",
+        "puerto_red": "GigabitEthernet0/158",
+        "vlan": 30,
+        "color": "yellow",
+        "x": 1860,
+        "y": 560
+    },
+    {
+        "id": "PC_159",
+        "label": "PC 159",
+        "servicio": "CITAS",
+        "puerto_red": "GigabitEthernet0/159",
+        "vlan": 30,
+        "color": "yellow",
+        "x": 1980,
+        "y": 560
+    },
+    {
+        "id": "PC_160",
+        "label": "PC 160",
+        "servicio": "CITAS",
+        "puerto_red": "GigabitEthernet0/160",
+        "vlan": 30,
+        "color": "yellow",
+        "x": 2100,
+        "y": 560
+    },
+    {
+        "id": "PC_161",
+        "label": "PC 161",
+        "servicio": "CITAS",
+        "puerto_red": "GigabitEthernet0/161",
+        "vlan": 30,
+        "color": "yellow",
+        "x": 2220,
+        "y": 560
+    },
+    {
+        "id": "PC_162",
+        "label": "PC 162",
+        "servicio": "CITAS",
+        "puerto_red": "GigabitEthernet0/162",
+        "vlan": 30,
+        "color": "yellow",
+        "x": 2340,
+        "y": 560
+    },
+    {
+        "id": "PC_163",
+        "label": "PC 163",
+        "servicio": "CUADRO MEDICO",
+        "puerto_red": "GigabitEthernet0/163",
+        "vlan": 40,
+        "color": "purple",
+        "x": 1380,
+        "y": 640
+    },
+    {
+        "id": "PC_164",
+        "label": "PC 164",
+        "servicio": "CUADRO MEDICO",
+        "puerto_red": "GigabitEthernet0/164",
+        "vlan": 40,
+        "color": "purple",
+        "x": 1500,
+        "y": 640
+    },
+    {
+        "id": "PC_165",
+        "label": "PC 165",
+        "servicio": "CUADRO MEDICO",
+        "puerto_red": "GigabitEthernet0/165",
+        "vlan": 40,
+        "color": "purple",
+        "x": 1620,
+        "y": 640
+    },
+    {
+        "id": "PC_166",
+        "label": "PC 166",
+        "servicio": "CUADRO MEDICO",
+        "puerto_red": "GigabitEthernet0/166",
+        "vlan": 40,
+        "color": "purple",
+        "x": 1740,
+        "y": 640
+    },
+    {
+        "id": "PC_167",
+        "label": "PC 167",
+        "servicio": "CUADRO MEDICO",
+        "puerto_red": "GigabitEthernet0/167",
+        "vlan": 40,
+        "color": "purple",
+        "x": 1860,
+        "y": 640
+    },
+    {
+        "id": "PC_168",
+        "label": "PC 168",
+        "servicio": "CUADRO MEDICO",
+        "puerto_red": "GigabitEthernet0/168",
+        "vlan": 40,
+        "color": "purple",
+        "x": 1980,
+        "y": 640
+    },
+    {
+        "id": "PC_169",
+        "label": "PC 169",
+        "servicio": "CUADRO MEDICO",
+        "puerto_red": "GigabitEthernet0/169",
+        "vlan": 40,
+        "color": "purple",
+        "x": 2100,
+        "y": 640
+    },
+    {
+        "id": "PC_170",
+        "label": "PC 170",
+        "servicio": "CUADRO MEDICO",
+        "puerto_red": "GigabitEthernet0/170",
+        "vlan": 40,
+        "color": "purple",
+        "x": 2220,
+        "y": 640
+    },
+    {
+        "id": "PC_171",
+        "label": "PC 171",
+        "servicio": "CUADRO MEDICO",
+        "puerto_red": "GigabitEthernet0/171",
+        "vlan": 40,
+        "color": "purple",
+        "x": 2340,
+        "y": 640
+    },
+    {
+        "id": "PC_172",
+        "label": "PC 172",
+        "servicio": "EURONA",
+        "puerto_red": "GigabitEthernet0/172",
+        "vlan": 50,
+        "color": "blue",
+        "x": 1380,
+        "y": 720
+    },
+    {
+        "id": "PC_173",
+        "label": "PC 173",
+        "servicio": "EURONA",
+        "puerto_red": "GigabitEthernet0/173",
+        "vlan": 50,
+        "color": "blue",
+        "x": 1500,
+        "y": 720
+    },
+    {
+        "id": "PC_174",
+        "label": "PC 174",
+        "servicio": "EURONA",
+        "puerto_red": "GigabitEthernet0/174",
+        "vlan": 50,
+        "color": "blue",
+        "x": 1620,
+        "y": 720
+    },
+    {
+        "id": "PC_175",
+        "label": "PC 175",
+        "servicio": "EURONA",
+        "puerto_red": "GigabitEthernet0/175",
+        "vlan": 50,
+        "color": "blue",
+        "x": 1740,
+        "y": 720
+    },
+    {
+        "id": "PC_176",
+        "label": "PC 176",
+        "servicio": "EURONA",
+        "puerto_red": "GigabitEthernet0/176",
+        "vlan": 50,
+        "color": "blue",
+        "x": 1860,
+        "y": 720
+    },
+    {
+        "id": "PC_177",
+        "label": "PC 177",
+        "servicio": "EURONA",
+        "puerto_red": "GigabitEthernet0/177",
+        "vlan": 50,
+        "color": "blue",
+        "x": 1980,
+        "y": 720
+    },
+    {
+        "id": "PC_178",
+        "label": "PC 178",
+        "servicio": "EURONA",
+        "puerto_red": "GigabitEthernet0/178",
+        "vlan": 50,
+        "color": "blue",
+        "x": 2100,
+        "y": 720
+    },
+    {
+        "id": "PC_179",
+        "label": "PC 179",
+        "servicio": "EURONA",
+        "puerto_red": "GigabitEthernet0/179",
+        "vlan": 50,
+        "color": "blue",
+        "x": 2220,
+        "y": 720
+    },
+    {
+        "id": "PC_180",
+        "label": "PC 180",
+        "servicio": "EURONA",
+        "puerto_red": "GigabitEthernet0/180",
+        "vlan": 50,
+        "color": "blue",
+        "x": 2340,
+        "y": 720
+    },
+    {
+        "id": "CANALETA_0",
+        "label": "Canaleta 1",
+        "shape": "box",
+        "color": "gray",
+        "x": 480,
+        "y": 40
+    },
+    {
+        "id": "CANALETA_1",
+        "label": "Canaleta 2",
+        "shape": "box",
+        "color": "gray",
+        "x": 480,
+        "y": 120
+    },
+    {
+        "id": "CANALETA_2",
+        "label": "Canaleta 3",
+        "shape": "box",
+        "color": "gray",
+        "x": 480,
+        "y": 200
+    },
+    {
+        "id": "CANALETA_3",
+        "label": "Canaleta 4",
+        "shape": "box",
+        "color": "gray",
+        "x": 480,
+        "y": 280
+    },
+    {
+        "id": "CANALETA_4",
+        "label": "Canaleta 5",
+        "shape": "box",
+        "color": "gray",
+        "x": 480,
+        "y": 360
+    },
+    {
+        "id": "CANALETA_5",
+        "label": "Canaleta 6",
+        "shape": "box",
+        "color": "gray",
+        "x": 480,
+        "y": 440
+    },
+    {
+        "id": "CANALETA_6",
+        "label": "Canaleta 7",
+        "shape": "box",
+        "color": "gray",
+        "x": 480,
+        "y": 520
+    },
+    {
+        "id": "CANALETA_7",
+        "label": "Canaleta 8",
+        "shape": "box",
+        "color": "gray",
+        "x": 480,
+        "y": 600
+    },
+    {
+        "id": "CANALETA_8",
+        "label": "Canaleta 9",
+        "shape": "box",
+        "color": "gray",
+        "x": 480,
+        "y": 680
+    },
+    {
+        "id": "CANALETA_9",
+        "label": "Canaleta 10",
+        "shape": "box",
+        "color": "gray",
+        "x": 480,
+        "y": 760
+    },
+    {
+        "id": "CANALETA_0_D",
+        "label": "Canaleta 1",
+        "shape": "box",
+        "color": "gray",
+        "x": 900,
+        "y": 40
+    },
+    {
+        "id": "CANALETA_1_D",
+        "label": "Canaleta 2",
+        "shape": "box",
+        "color": "gray",
+        "x": 900,
+        "y": 120
+    },
+    {
+        "id": "CANALETA_2_D",
+        "label": "Canaleta 3",
+        "shape": "box",
+        "color": "gray",
+        "x": 900,
+        "y": 200
+    },
+    {
+        "id": "CANALETA_3_D",
+        "label": "Canaleta 4",
+        "shape": "box",
+        "color": "gray",
+        "x": 900,
+        "y": 280
+    },
+    {
+        "id": "CANALETA_4_D",
+        "label": "Canaleta 5",
+        "shape": "box",
+        "color": "gray",
+        "x": 900,
+        "y": 360
+    },
+    {
+        "id": "CANALETA_5_D",
+        "label": "Canaleta 6",
+        "shape": "box",
+        "color": "gray",
+        "x": 900,
+        "y": 440
+    },
+    {
+        "id": "CANALETA_6_D",
+        "label": "Canaleta 7",
+        "shape": "box",
+        "color": "gray",
+        "x": 900,
+        "y": 520
+    },
+    {
+        "id": "CANALETA_7_D",
+        "label": "Canaleta 8",
+        "shape": "box",
+        "color": "gray",
+        "x": 900,
+        "y": 600
+    },
+    {
+        "id": "CANALETA_8_D",
+        "label": "Canaleta 9",
+        "shape": "box",
+        "color": "gray",
+        "x": 900,
+        "y": 680
+    },
+    {
+        "id": "CANALETA_9_D",
+        "label": "Canaleta 10",
+        "shape": "box",
+        "color": "gray",
+        "x": 900,
+        "y": 760
+    }
+]

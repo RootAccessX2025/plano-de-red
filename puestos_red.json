@@ -1,0 +1,1493 @@
+[
+    [
+        {
+            "id": "PUESTO_0182",
+            "label": "0182",
+            "puerto_red": "GigabitEthernet0/14",
+            "vlan": 30,
+            "color": "#f1c232",
+            "switch": "Switch-8"
+        },
+        {
+            "id": "PUESTO_0183",
+            "label": "0183",
+            "puerto_red": "GigabitEthernet0/29",
+            "vlan": 20,
+            "color": "#e69138",
+            "switch": "Switch-5"
+        },
+        {
+            "id": "PUESTO_0184",
+            "label": "0184",
+            "puerto_red": "GigabitEthernet0/21",
+            "vlan": 30,
+            "color": "#f1c232",
+            "switch": "Switch-4"
+        }
+    ],
+    [
+        {
+            "id": "PASILLO",
+            "label": "",
+            "color": "#cccccc"
+        }
+    ],
+    [
+        {
+            "id": "PUESTO_0200",
+            "label": "0200",
+            "puerto_red": "GigabitEthernet0/15",
+            "vlan": 30,
+            "color": "#f1c232",
+            "switch": "Switch-6"
+        },
+        {
+            "id": "PUESTO_0201",
+            "label": "0201",
+            "puerto_red": "GigabitEthernet0/10",
+            "vlan": 10,
+            "color": "#6aa84f",
+            "switch": "Switch-6"
+        },
+        {
+            "id": "PUESTO_0202",
+            "label": "0202",
+            "puerto_red": "GigabitEthernet0/20",
+            "vlan": 20,
+            "color": "#e69138",
+            "switch": "Switch-8"
+        },
+        {
+            "id": "PUESTO_0203",
+            "label": "0203",
+            "puerto_red": "GigabitEthernet0/42",
+            "vlan": 30,
+            "color": "#f1c232",
+            "switch": "Switch-2"
+        },
+        {
+            "id": "PUESTO_0204",
+            "label": "0204",
+            "puerto_red": "GigabitEthernet0/46",
+            "vlan": 30,
+            "color": "#f1c232",
+            "switch": "Switch-10"
+        },
+        {
+            "id": "PUESTO_0205",
+            "label": "0205",
+            "puerto_red": "GigabitEthernet0/6",
+            "vlan": 40,
+            "color": "#a64d79",
+            "switch": "Switch-1"
+        },
+        {
+            "id": "PUESTO_0206",
+            "label": "0206",
+            "puerto_red": "GigabitEthernet0/36",
+            "vlan": 20,
+            "color": "#e69138",
+            "switch": "Switch-4"
+        },
+        {
+            "id": "PUESTO_0207",
+            "label": "0207",
+            "puerto_red": "GigabitEthernet0/40",
+            "vlan": 30,
+            "color": "#f1c232",
+            "switch": "Switch-7"
+        },
+        {
+            "id": "PUESTO_0208",
+            "label": "0208",
+            "puerto_red": "GigabitEthernet0/6",
+            "vlan": 30,
+            "color": "#f1c232",
+            "switch": "Switch-4"
+        },
+        {
+            "id": "PUESTO_0209",
+            "label": "0209",
+            "puerto_red": "GigabitEthernet0/9",
+            "vlan": 20,
+            "color": "#e69138",
+            "switch": "Switch-7"
+        },
+        {
+            "id": "PUESTO_0210",
+            "label": "0210",
+            "puerto_red": "GigabitEthernet0/36",
+            "vlan": 30,
+            "color": "#f1c232",
+            "switch": "Switch-9"
+        },
+        {
+            "id": "PUESTO_0211",
+            "label": "0211",
+            "puerto_red": "GigabitEthernet0/5",
+            "vlan": 40,
+            "color": "#a64d79",
+            "switch": "Switch-9"
+        },
+        {
+            "id": "PUESTO_0212",
+            "label": "0212",
+            "puerto_red": "GigabitEthernet0/35",
+            "vlan": 20,
+            "color": "#e69138",
+            "switch": "Switch-8"
+        },
+        {
+            "id": "PUESTO_019",
+            "label": "019",
+            "puerto_red": "GigabitEthernet0/25",
+            "vlan": 30,
+            "color": "#f1c232",
+            "switch": "Switch-9"
+        }
+    ],
+    [
+        {
+            "id": "PUESTO_0226",
+            "label": "0226",
+            "puerto_red": "GigabitEthernet0/42",
+            "vlan": 30,
+            "color": "#f1c232",
+            "switch": "Switch-5"
+        },
+        {
+            "id": "PUESTO_0227",
+            "label": "0227",
+            "puerto_red": "GigabitEthernet0/34",
+            "vlan": 30,
+            "color": "#f1c232",
+            "switch": "Switch-8"
+        },
+        {
+            "id": "PUESTO_0228",
+            "label": "0228",
+            "puerto_red": "GigabitEthernet0/37",
+            "vlan": 40,
+            "color": "#a64d79",
+            "switch": "Switch-8"
+        },
+        {
+            "id": "PUESTO_0229",
+            "label": "0229",
+            "puerto_red": "GigabitEthernet0/17",
+            "vlan": 40,
+            "color": "#a64d79",
+            "switch": "Switch-10"
+        },
+        {
+            "id": "PUESTO_0230",
+            "label": "0230",
+            "puerto_red": "GigabitEthernet0/46",
+            "vlan": 20,
+            "color": "#e69138",
+            "switch": "Switch-8"
+        },
+        {
+            "id": "PUESTO_0231",
+            "label": "0231",
+            "puerto_red": "GigabitEthernet0/5",
+            "vlan": 40,
+            "color": "#a64d79",
+            "switch": "Switch-4"
+        },
+        {
+            "id": "PUESTO_0232",
+            "label": "0232",
+            "puerto_red": "GigabitEthernet0/8",
+            "vlan": 40,
+            "color": "#a64d79",
+            "switch": "Switch-8"
+        },
+        {
+            "id": "PUESTO_0233",
+            "label": "0233",
+            "puerto_red": "GigabitEthernet0/26",
+            "vlan": 40,
+            "color": "#a64d79",
+            "switch": "Switch-2"
+        },
+        {
+            "id": "PUESTO_0234",
+            "label": "0234",
+            "puerto_red": "GigabitEthernet0/1",
+            "vlan": 20,
+            "color": "#e69138",
+            "switch": "Switch-10"
+        },
+        {
+            "id": "PUESTO_0235",
+            "label": "0235",
+            "puerto_red": "GigabitEthernet0/41",
+            "vlan": 40,
+            "color": "#a64d79",
+            "switch": "Switch-4"
+        },
+        {
+            "id": "PUESTO_0236",
+            "label": "0236",
+            "puerto_red": "GigabitEthernet0/32",
+            "vlan": 40,
+            "color": "#a64d79",
+            "switch": "Switch-9"
+        },
+        {
+            "id": "PUESTO_0237",
+            "label": "0237",
+            "puerto_red": "GigabitEthernet0/1",
+            "vlan": 50,
+            "color": "#674ea7",
+            "switch": "Switch-8"
+        },
+        {
+            "id": "PUESTO_0238",
+            "label": "0238",
+            "puerto_red": "GigabitEthernet0/41",
+            "vlan": 30,
+            "color": "#f1c232",
+            "switch": "Switch-4"
+        },
+        {
+            "id": "PUESTO_020",
+            "label": "020",
+            "puerto_red": "GigabitEthernet0/12",
+            "vlan": 40,
+            "color": "#a64d79",
+            "switch": "Switch-6"
+        }
+    ],
+    [
+        {
+            "id": "PASILLO",
+            "label": "",
+            "color": "#cccccc"
+        }
+    ],
+    [
+        {
+            "id": "PUESTO_0252",
+            "label": "0252",
+            "puerto_red": "GigabitEthernet0/21",
+            "vlan": 30,
+            "color": "#f1c232",
+            "switch": "Switch-6"
+        },
+        {
+            "id": "PUESTO_0253",
+            "label": "0253",
+            "puerto_red": "GigabitEthernet0/17",
+            "vlan": 40,
+            "color": "#a64d79",
+            "switch": "Switch-2"
+        },
+        {
+            "id": "PUESTO_0254",
+            "label": "0254",
+            "puerto_red": "GigabitEthernet0/17",
+            "vlan": 20,
+            "color": "#e69138",
+            "switch": "Switch-7"
+        },
+        {
+            "id": "PUESTO_0255",
+            "label": "0255",
+            "puerto_red": "GigabitEthernet0/4",
+            "vlan": 30,
+            "color": "#f1c232",
+            "switch": "Switch-5"
+        },
+        {
+            "id": "PUESTO_0256",
+            "label": "0256",
+            "puerto_red": "GigabitEthernet0/46",
+            "vlan": 20,
+            "color": "#e69138",
+            "switch": "Switch-4"
+        },
+        {
+            "id": "PUESTO_0257",
+            "label": "0257",
+            "puerto_red": "GigabitEthernet0/4",
+            "vlan": 10,
+            "color": "#6aa84f",
+            "switch": "Switch-10"
+        },
+        {
+            "id": "PUESTO_0258",
+            "label": "0258",
+            "puerto_red": "GigabitEthernet0/14",
+            "vlan": 10,
+            "color": "#6aa84f",
+            "switch": "Switch-1"
+        },
+        {
+            "id": "PUESTO_0259",
+            "label": "0259",
+            "puerto_red": "GigabitEthernet0/33",
+            "vlan": 40,
+            "color": "#a64d79",
+            "switch": "Switch-7"
+        },
+        {
+            "id": "PUESTO_0260",
+            "label": "0260",
+            "puerto_red": "GigabitEthernet0/46",
+            "vlan": 20,
+            "color": "#e69138",
+            "switch": "Switch-8"
+        },
+        {
+            "id": "COLUMNA",
+            "label": "",
+            "color": "#000000"
+        },
+        {
+            "id": "PUESTO_0261",
+            "label": "0261",
+            "puerto_red": "GigabitEthernet0/7",
+            "vlan": 10,
+            "color": "#6aa84f",
+            "switch": "Switch-9"
+        },
+        {
+            "id": "PUESTO_0262",
+            "label": "0262",
+            "puerto_red": "GigabitEthernet0/27",
+            "vlan": 40,
+            "color": "#a64d79",
+            "switch": "Switch-2"
+        },
+        {
+            "id": "PUESTO_021",
+            "label": "021",
+            "puerto_red": "GigabitEthernet0/30",
+            "vlan": 30,
+            "color": "#f1c232",
+            "switch": "Switch-1"
+        }
+    ],
+    [
+        {
+            "id": "PUESTO_0275",
+            "label": "0275",
+            "puerto_red": "GigabitEthernet0/43",
+            "vlan": 20,
+            "color": "#e69138",
+            "switch": "Switch-10"
+        },
+        {
+            "id": "PUESTO_0276",
+            "label": "0276",
+            "puerto_red": "GigabitEthernet0/3",
+            "vlan": 50,
+            "color": "#674ea7",
+            "switch": "Switch-9"
+        },
+        {
+            "id": "PUESTO_0277",
+            "label": "0277",
+            "puerto_red": "GigabitEthernet0/6",
+            "vlan": 50,
+            "color": "#674ea7",
+            "switch": "Switch-6"
+        },
+        {
+            "id": "PUESTO_0278",
+            "label": "0278",
+            "puerto_red": "GigabitEthernet0/19",
+            "vlan": 50,
+            "color": "#674ea7",
+            "switch": "Switch-7"
+        },
+        {
+            "id": "PUESTO_0279",
+            "label": "0279",
+            "puerto_red": "GigabitEthernet0/2",
+            "vlan": 20,
+            "color": "#e69138",
+            "switch": "Switch-3"
+        },
+        {
+            "id": "PUESTO_0280",
+            "label": "0280",
+            "puerto_red": "GigabitEthernet0/42",
+            "vlan": 20,
+            "color": "#e69138",
+            "switch": "Switch-2"
+        },
+        {
+            "id": "PUESTO_0281",
+            "label": "0281",
+            "puerto_red": "GigabitEthernet0/18",
+            "vlan": 50,
+            "color": "#674ea7",
+            "switch": "Switch-5"
+        },
+        {
+            "id": "PUESTO_0282",
+            "label": "0282",
+            "puerto_red": "GigabitEthernet0/19",
+            "vlan": 40,
+            "color": "#a64d79",
+            "switch": "Switch-6"
+        },
+        {
+            "id": "PUESTO_0283",
+            "label": "0283",
+            "puerto_red": "GigabitEthernet0/35",
+            "vlan": 30,
+            "color": "#f1c232",
+            "switch": "Switch-2"
+        },
+        {
+            "id": "COLUMNA",
+            "label": "",
+            "color": "#000000"
+        },
+        {
+            "id": "PUESTO_0284",
+            "label": "0284",
+            "puerto_red": "GigabitEthernet0/25",
+            "vlan": 20,
+            "color": "#e69138",
+            "switch": "Switch-10"
+        },
+        {
+            "id": "PUESTO_0285",
+            "label": "0285",
+            "puerto_red": "GigabitEthernet0/10",
+            "vlan": 50,
+            "color": "#674ea7",
+            "switch": "Switch-3"
+        },
+        {
+            "id": "PUESTO_022",
+            "label": "022",
+            "puerto_red": "GigabitEthernet0/2",
+            "vlan": 10,
+            "color": "#6aa84f",
+            "switch": "Switch-6"
+        }
+    ],
+    [
+        {
+            "id": "PASILLO",
+            "label": "",
+            "color": "#cccccc"
+        }
+    ],
+    [
+        {
+            "id": "PUESTO_0298",
+            "label": "0298",
+            "puerto_red": "GigabitEthernet0/43",
+            "vlan": 40,
+            "color": "#a64d79",
+            "switch": "Switch-4"
+        },
+        {
+            "id": "PUESTO_0299",
+            "label": "0299",
+            "puerto_red": "GigabitEthernet0/5",
+            "vlan": 50,
+            "color": "#674ea7",
+            "switch": "Switch-3"
+        },
+        {
+            "id": "PUESTO_0300",
+            "label": "0300",
+            "puerto_red": "GigabitEthernet0/32",
+            "vlan": 50,
+            "color": "#674ea7",
+            "switch": "Switch-6"
+        },
+        {
+            "id": "PUESTO_0301",
+            "label": "0301",
+            "puerto_red": "GigabitEthernet0/41",
+            "vlan": 10,
+            "color": "#6aa84f",
+            "switch": "Switch-6"
+        },
+        {
+            "id": "PUESTO_0302",
+            "label": "0302",
+            "puerto_red": "GigabitEthernet0/41",
+            "vlan": 10,
+            "color": "#6aa84f",
+            "switch": "Switch-2"
+        },
+        {
+            "id": "PUESTO_0303",
+            "label": "0303",
+            "puerto_red": "GigabitEthernet0/40",
+            "vlan": 50,
+            "color": "#674ea7",
+            "switch": "Switch-10"
+        },
+        {
+            "id": "PUESTO_0304",
+            "label": "0304",
+            "puerto_red": "GigabitEthernet0/17",
+            "vlan": 20,
+            "color": "#e69138",
+            "switch": "Switch-9"
+        },
+        {
+            "id": "PUESTO_0305",
+            "label": "0305",
+            "puerto_red": "GigabitEthernet0/13",
+            "vlan": 30,
+            "color": "#f1c232",
+            "switch": "Switch-1"
+        },
+        {
+            "id": "PUESTO_0306",
+            "label": "0306",
+            "puerto_red": "GigabitEthernet0/4",
+            "vlan": 30,
+            "color": "#f1c232",
+            "switch": "Switch-9"
+        },
+        {
+            "id": "PUESTO_0307",
+            "label": "0307",
+            "puerto_red": "GigabitEthernet0/29",
+            "vlan": 10,
+            "color": "#6aa84f",
+            "switch": "Switch-10"
+        },
+        {
+            "id": "PUESTO_0308",
+            "label": "0308",
+            "puerto_red": "GigabitEthernet0/1",
+            "vlan": 40,
+            "color": "#a64d79",
+            "switch": "Switch-10"
+        },
+        {
+            "id": "PUESTO_0309",
+            "label": "0309",
+            "puerto_red": "GigabitEthernet0/39",
+            "vlan": 30,
+            "color": "#f1c232",
+            "switch": "Switch-8"
+        },
+        {
+            "id": "PUESTO_0310",
+            "label": "0310",
+            "puerto_red": "GigabitEthernet0/12",
+            "vlan": 40,
+            "color": "#a64d79",
+            "switch": "Switch-1"
+        },
+        {
+            "id": "PUESTO_023",
+            "label": "023",
+            "puerto_red": "GigabitEthernet0/12",
+            "vlan": 40,
+            "color": "#a64d79",
+            "switch": "Switch-5"
+        }
+    ],
+    [
+        {
+            "id": "PUESTO_0324",
+            "label": "0324",
+            "puerto_red": "GigabitEthernet0/35",
+            "vlan": 20,
+            "color": "#e69138",
+            "switch": "Switch-1"
+        },
+        {
+            "id": "PUESTO_0325",
+            "label": "0325",
+            "puerto_red": "GigabitEthernet0/10",
+            "vlan": 50,
+            "color": "#674ea7",
+            "switch": "Switch-3"
+        },
+        {
+            "id": "PUESTO_0326",
+            "label": "0326",
+            "puerto_red": "GigabitEthernet0/25",
+            "vlan": 20,
+            "color": "#e69138",
+            "switch": "Switch-8"
+        },
+        {
+            "id": "PUESTO_0327",
+            "label": "0327",
+            "puerto_red": "GigabitEthernet0/24",
+            "vlan": 30,
+            "color": "#f1c232",
+            "switch": "Switch-4"
+        },
+        {
+            "id": "PUESTO_0328",
+            "label": "0328",
+            "puerto_red": "GigabitEthernet0/14",
+            "vlan": 30,
+            "color": "#f1c232",
+            "switch": "Switch-2"
+        },
+        {
+            "id": "PUESTO_0329",
+            "label": "0329",
+            "puerto_red": "GigabitEthernet0/37",
+            "vlan": 10,
+            "color": "#6aa84f",
+            "switch": "Switch-6"
+        },
+        {
+            "id": "PUESTO_0330",
+            "label": "0330",
+            "puerto_red": "GigabitEthernet0/2",
+            "vlan": 10,
+            "color": "#6aa84f",
+            "switch": "Switch-1"
+        },
+        {
+            "id": "PUESTO_0331",
+            "label": "0331",
+            "puerto_red": "GigabitEthernet0/43",
+            "vlan": 40,
+            "color": "#a64d79",
+            "switch": "Switch-7"
+        },
+        {
+            "id": "PUESTO_0332",
+            "label": "0332",
+            "puerto_red": "GigabitEthernet0/30",
+            "vlan": 30,
+            "color": "#f1c232",
+            "switch": "Switch-1"
+        },
+        {
+            "id": "PUESTO_0333",
+            "label": "0333",
+            "puerto_red": "GigabitEthernet0/37",
+            "vlan": 10,
+            "color": "#6aa84f",
+            "switch": "Switch-10"
+        },
+        {
+            "id": "PUESTO_0334",
+            "label": "0334",
+            "puerto_red": "GigabitEthernet0/42",
+            "vlan": 40,
+            "color": "#a64d79",
+            "switch": "Switch-7"
+        },
+        {
+            "id": "PUESTO_0335",
+            "label": "0335",
+            "puerto_red": "GigabitEthernet0/48",
+            "vlan": 20,
+            "color": "#e69138",
+            "switch": "Switch-7"
+        },
+        {
+            "id": "PUESTO_0336",
+            "label": "0336",
+            "puerto_red": "GigabitEthernet0/36",
+            "vlan": 40,
+            "color": "#a64d79",
+            "switch": "Switch-2"
+        },
+        {
+            "id": "PUESTO_024",
+            "label": "024",
+            "puerto_red": "GigabitEthernet0/9",
+            "vlan": 10,
+            "color": "#6aa84f",
+            "switch": "Switch-9"
+        }
+    ],
+    [
+        {
+            "id": "PASILLO",
+            "label": "",
+            "color": "#cccccc"
+        }
+    ],
+    [
+        {
+            "id": "PUESTO_0350",
+            "label": "0350",
+            "puerto_red": "GigabitEthernet0/25",
+            "vlan": 50,
+            "color": "#674ea7",
+            "switch": "Switch-8"
+        },
+        {
+            "id": "PUESTO_0351",
+            "label": "0351",
+            "puerto_red": "GigabitEthernet0/29",
+            "vlan": 50,
+            "color": "#674ea7",
+            "switch": "Switch-8"
+        },
+        {
+            "id": "PUESTO_0352",
+            "label": "0352",
+            "puerto_red": "GigabitEthernet0/3",
+            "vlan": 10,
+            "color": "#6aa84f",
+            "switch": "Switch-3"
+        },
+        {
+            "id": "PUESTO_0353",
+            "label": "0353",
+            "puerto_red": "GigabitEthernet0/8",
+            "vlan": 50,
+            "color": "#674ea7",
+            "switch": "Switch-6"
+        },
+        {
+            "id": "PUESTO_0354",
+            "label": "0354",
+            "puerto_red": "GigabitEthernet0/37",
+            "vlan": 20,
+            "color": "#e69138",
+            "switch": "Switch-3"
+        },
+        {
+            "id": "PUESTO_0355",
+            "label": "0355",
+            "puerto_red": "GigabitEthernet0/48",
+            "vlan": 40,
+            "color": "#a64d79",
+            "switch": "Switch-3"
+        },
+        {
+            "id": "PUESTO_0356",
+            "label": "0356",
+            "puerto_red": "GigabitEthernet0/29",
+            "vlan": 20,
+            "color": "#e69138",
+            "switch": "Switch-6"
+        },
+        {
+            "id": "PUESTO_0357",
+            "label": "0357",
+            "puerto_red": "GigabitEthernet0/42",
+            "vlan": 10,
+            "color": "#6aa84f",
+            "switch": "Switch-1"
+        },
+        {
+            "id": "PUESTO_0358",
+            "label": "0358",
+            "puerto_red": "GigabitEthernet0/42",
+            "vlan": 10,
+            "color": "#6aa84f",
+            "switch": "Switch-3"
+        },
+        {
+            "id": "COLUMNA",
+            "label": "",
+            "color": "#000000"
+        },
+        {
+            "id": "PUESTO_0359",
+            "label": "0359",
+            "puerto_red": "GigabitEthernet0/41",
+            "vlan": 30,
+            "color": "#f1c232",
+            "switch": "Switch-6"
+        },
+        {
+            "id": "PUESTO_0360",
+            "label": "0360",
+            "puerto_red": "GigabitEthernet0/14",
+            "vlan": 40,
+            "color": "#a64d79",
+            "switch": "Switch-3"
+        },
+        {
+            "id": "PUESTO_",
+            "label": "",
+            "puerto_red": "GigabitEthernet0/30",
+            "vlan": 30,
+            "color": "#f1c232",
+            "switch": "Switch-10"
+        }
+    ],
+    [
+        {
+            "id": "PUESTO_0373",
+            "label": "0373",
+            "puerto_red": "GigabitEthernet0/34",
+            "vlan": 40,
+            "color": "#a64d79",
+            "switch": "Switch-8"
+        },
+        {
+            "id": "PUESTO_0374",
+            "label": "0374",
+            "puerto_red": "GigabitEthernet0/10",
+            "vlan": 30,
+            "color": "#f1c232",
+            "switch": "Switch-5"
+        },
+        {
+            "id": "PUESTO_0375",
+            "label": "0375",
+            "puerto_red": "GigabitEthernet0/5",
+            "vlan": 10,
+            "color": "#6aa84f",
+            "switch": "Switch-10"
+        },
+        {
+            "id": "PUESTO_0376",
+            "label": "0376",
+            "puerto_red": "GigabitEthernet0/19",
+            "vlan": 40,
+            "color": "#a64d79",
+            "switch": "Switch-9"
+        },
+        {
+            "id": "PUESTO_0377",
+            "label": "0377",
+            "puerto_red": "GigabitEthernet0/39",
+            "vlan": 50,
+            "color": "#674ea7",
+            "switch": "Switch-10"
+        },
+        {
+            "id": "PUESTO_0378",
+            "label": "0378",
+            "puerto_red": "GigabitEthernet0/40",
+            "vlan": 40,
+            "color": "#a64d79",
+            "switch": "Switch-2"
+        },
+        {
+            "id": "PUESTO_0379",
+            "label": "0379",
+            "puerto_red": "GigabitEthernet0/38",
+            "vlan": 40,
+            "color": "#a64d79",
+            "switch": "Switch-9"
+        },
+        {
+            "id": "PUESTO_0380",
+            "label": "0380",
+            "puerto_red": "GigabitEthernet0/2",
+            "vlan": 20,
+            "color": "#e69138",
+            "switch": "Switch-2"
+        },
+        {
+            "id": "PUESTO_0381",
+            "label": "0381",
+            "puerto_red": "GigabitEthernet0/11",
+            "vlan": 30,
+            "color": "#f1c232",
+            "switch": "Switch-1"
+        },
+        {
+            "id": "COLUMNA",
+            "label": "",
+            "color": "#000000"
+        },
+        {
+            "id": "PUESTO_0382",
+            "label": "0382",
+            "puerto_red": "GigabitEthernet0/23",
+            "vlan": 50,
+            "color": "#674ea7",
+            "switch": "Switch-9"
+        },
+        {
+            "id": "PUESTO_0383",
+            "label": "0383",
+            "puerto_red": "GigabitEthernet0/24",
+            "vlan": 20,
+            "color": "#e69138",
+            "switch": "Switch-10"
+        },
+        {
+            "id": "PUESTO_",
+            "label": "",
+            "puerto_red": "GigabitEthernet0/27",
+            "vlan": 40,
+            "color": "#a64d79",
+            "switch": "Switch-10"
+        }
+    ],
+    [
+        {
+            "id": "PASILLO",
+            "label": "",
+            "color": "#cccccc"
+        }
+    ],
+    [
+        {
+            "id": "PUESTO_0396",
+            "label": "0396",
+            "puerto_red": "GigabitEthernet0/46",
+            "vlan": 20,
+            "color": "#e69138",
+            "switch": "Switch-6"
+        },
+        {
+            "id": "PUESTO_0397",
+            "label": "0397",
+            "puerto_red": "GigabitEthernet0/3",
+            "vlan": 20,
+            "color": "#e69138",
+            "switch": "Switch-7"
+        },
+        {
+            "id": "PUESTO_0398",
+            "label": "0398",
+            "puerto_red": "GigabitEthernet0/41",
+            "vlan": 50,
+            "color": "#674ea7",
+            "switch": "Switch-5"
+        },
+        {
+            "id": "PUESTO_0399",
+            "label": "0399",
+            "puerto_red": "GigabitEthernet0/15",
+            "vlan": 30,
+            "color": "#f1c232",
+            "switch": "Switch-10"
+        },
+        {
+            "id": "PUESTO_0400",
+            "label": "0400",
+            "puerto_red": "GigabitEthernet0/40",
+            "vlan": 20,
+            "color": "#e69138",
+            "switch": "Switch-6"
+        },
+        {
+            "id": "PUESTO_0401",
+            "label": "0401",
+            "puerto_red": "GigabitEthernet0/41",
+            "vlan": 20,
+            "color": "#e69138",
+            "switch": "Switch-5"
+        },
+        {
+            "id": "PUESTO_0402",
+            "label": "0402",
+            "puerto_red": "GigabitEthernet0/30",
+            "vlan": 50,
+            "color": "#674ea7",
+            "switch": "Switch-1"
+        },
+        {
+            "id": "PUESTO_0403",
+            "label": "0403",
+            "puerto_red": "GigabitEthernet0/39",
+            "vlan": 20,
+            "color": "#e69138",
+            "switch": "Switch-3"
+        },
+        {
+            "id": "PUESTO_0404",
+            "label": "0404",
+            "puerto_red": "GigabitEthernet0/42",
+            "vlan": 30,
+            "color": "#f1c232",
+            "switch": "Switch-6"
+        },
+        {
+            "id": "PUESTO_0405",
+            "label": "0405",
+            "puerto_red": "GigabitEthernet0/10",
+            "vlan": 30,
+            "color": "#f1c232",
+            "switch": "Switch-9"
+        },
+        {
+            "id": "PUESTO_0406",
+            "label": "0406",
+            "puerto_red": "GigabitEthernet0/21",
+            "vlan": 50,
+            "color": "#674ea7",
+            "switch": "Switch-10"
+        },
+        {
+            "id": "PUESTO_0407",
+            "label": "0407",
+            "puerto_red": "GigabitEthernet0/43",
+            "vlan": 20,
+            "color": "#e69138",
+            "switch": "Switch-3"
+        },
+        {
+            "id": "PUESTO_0408",
+            "label": "0408",
+            "puerto_red": "GigabitEthernet0/34",
+            "vlan": 20,
+            "color": "#e69138",
+            "switch": "Switch-2"
+        },
+        {
+            "id": "PUESTO_027",
+            "label": "027",
+            "puerto_red": "GigabitEthernet0/13",
+            "vlan": 10,
+            "color": "#6aa84f",
+            "switch": "Switch-9"
+        }
+    ],
+    [
+        {
+            "id": "PUESTO_0422",
+            "label": "0422",
+            "puerto_red": "GigabitEthernet0/4",
+            "vlan": 20,
+            "color": "#e69138",
+            "switch": "Switch-8"
+        },
+        {
+            "id": "PUESTO_0423",
+            "label": "0423",
+            "puerto_red": "GigabitEthernet0/46",
+            "vlan": 40,
+            "color": "#a64d79",
+            "switch": "Switch-8"
+        },
+        {
+            "id": "PUESTO_0424",
+            "label": "0424",
+            "puerto_red": "GigabitEthernet0/29",
+            "vlan": 40,
+            "color": "#a64d79",
+            "switch": "Switch-4"
+        },
+        {
+            "id": "PUESTO_0425",
+            "label": "0425",
+            "puerto_red": "GigabitEthernet0/48",
+            "vlan": 10,
+            "color": "#6aa84f",
+            "switch": "Switch-9"
+        },
+        {
+            "id": "PUESTO_0426",
+            "label": "0426",
+            "puerto_red": "GigabitEthernet0/26",
+            "vlan": 20,
+            "color": "#e69138",
+            "switch": "Switch-6"
+        },
+        {
+            "id": "PUESTO_0427",
+            "label": "0427",
+            "puerto_red": "GigabitEthernet0/31",
+            "vlan": 20,
+            "color": "#e69138",
+            "switch": "Switch-2"
+        },
+        {
+            "id": "PUESTO_0428",
+            "label": "0428",
+            "puerto_red": "GigabitEthernet0/34",
+            "vlan": 10,
+            "color": "#6aa84f",
+            "switch": "Switch-1"
+        },
+        {
+            "id": "PUESTO_0429",
+            "label": "0429",
+            "puerto_red": "GigabitEthernet0/1",
+            "vlan": 50,
+            "color": "#674ea7",
+            "switch": "Switch-9"
+        },
+        {
+            "id": "PUESTO_0430",
+            "label": "0430",
+            "puerto_red": "GigabitEthernet0/22",
+            "vlan": 20,
+            "color": "#e69138",
+            "switch": "Switch-6"
+        },
+        {
+            "id": "PUESTO_0431",
+            "label": "0431",
+            "puerto_red": "GigabitEthernet0/13",
+            "vlan": 20,
+            "color": "#e69138",
+            "switch": "Switch-8"
+        },
+        {
+            "id": "PUESTO_0432",
+            "label": "0432",
+            "puerto_red": "GigabitEthernet0/24",
+            "vlan": 30,
+            "color": "#f1c232",
+            "switch": "Switch-2"
+        },
+        {
+            "id": "PUESTO_0433",
+            "label": "0433",
+            "puerto_red": "GigabitEthernet0/26",
+            "vlan": 10,
+            "color": "#6aa84f",
+            "switch": "Switch-9"
+        },
+        {
+            "id": "PUESTO_0434",
+            "label": "0434",
+            "puerto_red": "GigabitEthernet0/22",
+            "vlan": 30,
+            "color": "#f1c232",
+            "switch": "Switch-4"
+        },
+        {
+            "id": "PUESTO_028",
+            "label": "028",
+            "puerto_red": "GigabitEthernet0/13",
+            "vlan": 10,
+            "color": "#6aa84f",
+            "switch": "Switch-3"
+        }
+    ],
+    [
+        {
+            "id": "PASILLO",
+            "label": "",
+            "color": "#cccccc"
+        }
+    ],
+    [
+        {
+            "id": "PUESTO_0448",
+            "label": "0448",
+            "puerto_red": "GigabitEthernet0/38",
+            "vlan": 10,
+            "color": "#6aa84f",
+            "switch": "Switch-7"
+        },
+        {
+            "id": "PUESTO_0449",
+            "label": "0449",
+            "puerto_red": "GigabitEthernet0/40",
+            "vlan": 30,
+            "color": "#f1c232",
+            "switch": "Switch-6"
+        },
+        {
+            "id": "PUESTO_0450",
+            "label": "0450",
+            "puerto_red": "GigabitEthernet0/23",
+            "vlan": 10,
+            "color": "#6aa84f",
+            "switch": "Switch-5"
+        },
+        {
+            "id": "PUESTO_0451",
+            "label": "0451",
+            "puerto_red": "GigabitEthernet0/29",
+            "vlan": 10,
+            "color": "#6aa84f",
+            "switch": "Switch-5"
+        },
+        {
+            "id": "PUESTO_0452",
+            "label": "0452",
+            "puerto_red": "GigabitEthernet0/15",
+            "vlan": 10,
+            "color": "#6aa84f",
+            "switch": "Switch-4"
+        },
+        {
+            "id": "PUESTO_0453",
+            "label": "0453",
+            "puerto_red": "GigabitEthernet0/30",
+            "vlan": 10,
+            "color": "#6aa84f",
+            "switch": "Switch-3"
+        },
+        {
+            "id": "PUESTO_0454",
+            "label": "0454",
+            "puerto_red": "GigabitEthernet0/10",
+            "vlan": 30,
+            "color": "#f1c232",
+            "switch": "Switch-1"
+        },
+        {
+            "id": "PUESTO_0455",
+            "label": "0455",
+            "puerto_red": "GigabitEthernet0/18",
+            "vlan": 10,
+            "color": "#6aa84f",
+            "switch": "Switch-10"
+        },
+        {
+            "id": "PUESTO_0456",
+            "label": "0456",
+            "puerto_red": "GigabitEthernet0/8",
+            "vlan": 30,
+            "color": "#f1c232",
+            "switch": "Switch-10"
+        },
+        {
+            "id": "COLUMNA",
+            "label": "",
+            "color": "#000000"
+        },
+        {
+            "id": "PUESTO_0457",
+            "label": "0457",
+            "puerto_red": "GigabitEthernet0/42",
+            "vlan": 40,
+            "color": "#a64d79",
+            "switch": "Switch-4"
+        },
+        {
+            "id": "PUESTO_0458",
+            "label": "0458",
+            "puerto_red": "GigabitEthernet0/14",
+            "vlan": 30,
+            "color": "#f1c232",
+            "switch": "Switch-7"
+        },
+        {
+            "id": "PUESTO_029",
+            "label": "029",
+            "puerto_red": "GigabitEthernet0/24",
+            "vlan": 30,
+            "color": "#f1c232",
+            "switch": "Switch-7"
+        }
+    ],
+    [
+        {
+            "id": "PUESTO_0471",
+            "label": "0471",
+            "puerto_red": "GigabitEthernet0/1",
+            "vlan": 50,
+            "color": "#674ea7",
+            "switch": "Switch-6"
+        },
+        {
+            "id": "PUESTO_0472",
+            "label": "0472",
+            "puerto_red": "GigabitEthernet0/8",
+            "vlan": 10,
+            "color": "#6aa84f",
+            "switch": "Switch-6"
+        },
+        {
+            "id": "PUESTO_0473",
+            "label": "0473",
+            "puerto_red": "GigabitEthernet0/15",
+            "vlan": 10,
+            "color": "#6aa84f",
+            "switch": "Switch-8"
+        },
+        {
+            "id": "PUESTO_0474",
+            "label": "0474",
+            "puerto_red": "GigabitEthernet0/36",
+            "vlan": 50,
+            "color": "#674ea7",
+            "switch": "Switch-5"
+        },
+        {
+            "id": "PUESTO_0475",
+            "label": "0475",
+            "puerto_red": "GigabitEthernet0/4",
+            "vlan": 10,
+            "color": "#6aa84f",
+            "switch": "Switch-3"
+        },
+        {
+            "id": "PUESTO_0476",
+            "label": "0476",
+            "puerto_red": "GigabitEthernet0/43",
+            "vlan": 40,
+            "color": "#a64d79",
+            "switch": "Switch-4"
+        },
+        {
+            "id": "PUESTO_0477",
+            "label": "0477",
+            "puerto_red": "GigabitEthernet0/33",
+            "vlan": 40,
+            "color": "#a64d79",
+            "switch": "Switch-7"
+        },
+        {
+            "id": "PUESTO_0478",
+            "label": "0478",
+            "puerto_red": "GigabitEthernet0/5",
+            "vlan": 30,
+            "color": "#f1c232",
+            "switch": "Switch-5"
+        },
+        {
+            "id": "PUESTO_0479",
+            "label": "0479",
+            "puerto_red": "GigabitEthernet0/43",
+            "vlan": 30,
+            "color": "#f1c232",
+            "switch": "Switch-4"
+        },
+        {
+            "id": "COLUMNA",
+            "label": "",
+            "color": "#000000"
+        },
+        {
+            "id": "PUESTO_0480",
+            "label": "0480",
+            "puerto_red": "GigabitEthernet0/38",
+            "vlan": 10,
+            "color": "#6aa84f",
+            "switch": "Switch-2"
+        },
+        {
+            "id": "PUESTO_0481",
+            "label": "0481",
+            "puerto_red": "GigabitEthernet0/37",
+            "vlan": 50,
+            "color": "#674ea7",
+            "switch": "Switch-2"
+        },
+        {
+            "id": "PUESTO_030",
+            "label": "030",
+            "puerto_red": "GigabitEthernet0/28",
+            "vlan": 40,
+            "color": "#a64d79",
+            "switch": "Switch-2"
+        }
+    ],
+    [
+        {
+            "id": "PASILLO",
+            "label": "",
+            "color": "#cccccc"
+        }
+    ],
+    [
+        {
+            "id": "PUESTO_0494",
+            "label": "0494",
+            "puerto_red": "GigabitEthernet0/9",
+            "vlan": 40,
+            "color": "#a64d79",
+            "switch": "Switch-4"
+        },
+        {
+            "id": "PUESTO_0495",
+            "label": "0495",
+            "puerto_red": "GigabitEthernet0/18",
+            "vlan": 30,
+            "color": "#f1c232",
+            "switch": "Switch-4"
+        },
+        {
+            "id": "PUESTO_0496",
+            "label": "0496",
+            "puerto_red": "GigabitEthernet0/32",
+            "vlan": 20,
+            "color": "#e69138",
+            "switch": "Switch-9"
+        },
+        {
+            "id": "PUESTO_0497",
+            "label": "0497",
+            "puerto_red": "GigabitEthernet0/18",
+            "vlan": 30,
+            "color": "#f1c232",
+            "switch": "Switch-8"
+        },
+        {
+            "id": "PUESTO_0498",
+            "label": "0498",
+            "puerto_red": "GigabitEthernet0/18",
+            "vlan": 10,
+            "color": "#6aa84f",
+            "switch": "Switch-7"
+        },
+        {
+            "id": "PUESTO_0499",
+            "label": "0499",
+            "puerto_red": "GigabitEthernet0/30",
+            "vlan": 40,
+            "color": "#a64d79",
+            "switch": "Switch-10"
+        },
+        {
+            "id": "PUESTO_0500",
+            "label": "0500",
+            "puerto_red": "GigabitEthernet0/11",
+            "vlan": 10,
+            "color": "#6aa84f",
+            "switch": "Switch-8"
+        },
+        {
+            "id": "PUESTO_0501",
+            "label": "0501",
+            "puerto_red": "GigabitEthernet0/9",
+            "vlan": 10,
+            "color": "#6aa84f",
+            "switch": "Switch-3"
+        },
+        {
+            "id": "PUESTO_0502",
+            "label": "0502",
+            "puerto_red": "GigabitEthernet0/35",
+            "vlan": 40,
+            "color": "#a64d79",
+            "switch": "Switch-9"
+        },
+        {
+            "id": "PUESTO_0503",
+            "label": "0503",
+            "puerto_red": "GigabitEthernet0/17",
+            "vlan": 30,
+            "color": "#f1c232",
+            "switch": "Switch-3"
+        },
+        {
+            "id": "PUESTO_0504",
+            "label": "0504",
+            "puerto_red": "GigabitEthernet0/27",
+            "vlan": 30,
+            "color": "#f1c232",
+            "switch": "Switch-2"
+        },
+        {
+            "id": "PUESTO_0505",
+            "label": "0505",
+            "puerto_red": "GigabitEthernet0/32",
+            "vlan": 50,
+            "color": "#674ea7",
+            "switch": "Switch-6"
+        },
+        {
+            "id": "PUESTO_0506",
+            "label": "0506",
+            "puerto_red": "GigabitEthernet0/41",
+            "vlan": 20,
+            "color": "#e69138",
+            "switch": "Switch-8"
+        },
+        {
+            "id": "PUESTO_0507",
+            "label": "0507",
+            "puerto_red": "GigabitEthernet0/24",
+            "vlan": 40,
+            "color": "#a64d79",
+            "switch": "Switch-6"
+        }
+    ]
+]

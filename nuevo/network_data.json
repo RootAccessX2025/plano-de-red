@@ -1,0 +1,210 @@
+{
+    "nodes": [
+        {
+            "id": 1,
+            "label": "Router Principal",
+            "image": "icons/router.png",
+            "shape": "image",
+            "level": 1,
+            "title": "\ud83d\udce1 Router ISP\n\ud83d\udd39 Conexi\u00f3n: Internet 1Gbps\n\ud83d\udd39 Seguridad: Firewall activado"
+        },
+        {
+            "id": 2,
+            "label": "Switch Core",
+            "image": "icons/switch.png",
+            "shape": "image",
+            "level": 1,
+            "title": "\ud83d\udd39 Switch de n\u00facleo\n\ud83d\udd39 Modelo: Cisco Catalyst 9500\n\ud83d\udd39 Capacidad: 10Gbps"
+        },
+        {
+            "id": 3,
+            "label": "Servidor Aplicaciones",
+            "image": "icons/server.png",
+            "shape": "image",
+            "level": 1,
+            "title": "\ud83d\udda5\ufe0f Servidor de Aplicaciones\n\ud83d\udd39 Sistema: Ubuntu Server 20.04\n\ud83d\udd39 RAM: 64GB"
+        },
+        {
+            "id": 4,
+            "label": "Servidor Base de Datos",
+            "image": "icons/server.png",
+            "shape": "image",
+            "level": 1,
+            "title": "\ud83d\uddc4\ufe0f Servidor de Base de Datos\n\ud83d\udd39 Motor: PostgreSQL\n\ud83d\udd39 Espacio: 2TB SSD"
+        },
+        {
+            "id": 5,
+            "label": "Cafeter\u00eda 3er Piso (Wi-Fi)",
+            "image": "icons/wifi.png",
+            "shape": "image",
+            "level": 1,
+            "title": "\ud83d\udcf6 Punto de acceso Wi-Fi\n\ud83d\udd39 SSID: Cafeteria3Piso\n\ud83d\udd39 Seguridad: WPA2"
+        },
+        {
+            "id": 10,
+            "label": "Switch Administraci\u00f3n",
+            "image": "icons/switch.png",
+            "shape": "image",
+            "level": 2,
+            "title": "\ud83d\udd39 Switch de oficinas\n\ud83d\udd39 Modelo: HP ProCurve 2920\n\ud83d\udd39 Capacidad: 1Gbps"
+        },
+        {
+            "id": 11,
+            "label": "Servicio 2-1",
+            "image": "icons/server.png",
+            "shape": "image",
+            "level": 2,
+            "title": "\ud83d\udda5\ufe0f Servicio Interno 1\n\ud83d\udd39 Acceso: Solo Administrativo\n\ud83d\udd39 Base de datos interna"
+        },
+        {
+            "id": 12,
+            "label": "Servicio 2-2",
+            "image": "icons/server.png",
+            "shape": "image",
+            "level": 2,
+            "title": "\ud83d\udda5\ufe0f Servicio Interno 2\n\ud83d\udd39 Aplicaciones Contables"
+        },
+        {
+            "id": 13,
+            "label": "Wi-Fi Oficina",
+            "image": "icons/wifi.png",
+            "shape": "image",
+            "level": 2,
+            "title": "\ud83d\udcf6 Wi-Fi Administrativo\n\ud83d\udd39 SSID: OficinasCorp\n\ud83d\udd39 Seguridad: WPA3"
+        },
+        {
+            "id": 20,
+            "label": "Switch Call Center",
+            "image": "icons/switch.png",
+            "shape": "image",
+            "level": 3,
+            "title": "\ud83d\udd39 Switch Call Center\n\ud83d\udd39 Modelo: Cisco 2960\n\ud83d\udd39 Capacidad: 1Gbps"
+        },
+        {
+            "id": 21,
+            "label": "Davivienda",
+            "image": "icons/server.png",
+            "shape": "image",
+            "level": 3,
+            "title": "\ud83c\udfe6 Servidor Call Center Davivienda\n\ud83d\udd39 IP: 192.168.10.2"
+        },
+        {
+            "id": 22,
+            "label": "Bancolombia",
+            "image": "icons/server.png",
+            "shape": "image",
+            "level": 3,
+            "title": "\ud83c\udfe6 Servidor Call Center Bancolombia\n\ud83d\udd39 IP: 192.168.10.3"
+        },
+        {
+            "id": 23,
+            "label": "Endesa",
+            "image": "icons/server.png",
+            "shape": "image",
+            "level": 3,
+            "title": "\u26a1 Servidor Endesa\n\ud83d\udd39 IP: 192.168.10.4"
+        },
+        {
+            "id": 24,
+            "label": "Simyo",
+            "image": "icons/server.png",
+            "shape": "image",
+            "level": 3,
+            "title": "\ud83d\udcde Servidor Simyo\n\ud83d\udd39 IP: 192.168.10.5"
+        },
+        {
+            "id": 25,
+            "label": "Cafeter\u00eda 1er Piso (Wi-Fi)",
+            "image": "icons/wifi.png",
+            "shape": "image",
+            "level": 3,
+            "title": "\ud83d\udcf6 Wi-Fi Call Center\n\ud83d\udd39 SSID: CallCenterWiFi\n\ud83d\udd39 Seguridad: WPA2"
+        }
+    ],
+    "edges": [
+        {
+            "from": 1,
+            "to": 2,
+            "label": "10G",
+            "color": "blue"
+        },
+        {
+            "from": 2,
+            "to": 3,
+            "label": "1G",
+            "color": "green"
+        },
+        {
+            "from": 2,
+            "to": 4,
+            "label": "1G",
+            "color": "green"
+        },
+        {
+            "from": 2,
+            "to": 5,
+            "label": "Wi-Fi",
+            "color": "purple"
+        },
+        {
+            "from": 2,
+            "to": 10,
+            "label": "Troncal 10G",
+            "color": "red"
+        },
+        {
+            "from": 10,
+            "to": 11,
+            "label": "1G",
+            "color": "brown"
+        },
+        {
+            "from": 10,
+            "to": 12,
+            "label": "1G",
+            "color": "brown"
+        },
+        {
+            "from": 10,
+            "to": 13,
+            "label": "Wi-Fi",
+            "color": "purple"
+        },
+        {
+            "from": 2,
+            "to": 20,
+            "label": "Troncal 10G",
+            "color": "red"
+        },
+        {
+            "from": 20,
+            "to": 21,
+            "label": "1G",
+            "color": "brown"
+        },
+        {
+            "from": 20,
+            "to": 22,
+            "label": "1G",
+            "color": "brown"
+        },
+        {
+            "from": 20,
+            "to": 23,
+            "label": "1G",
+            "color": "brown"
+        },
+        {
+            "from": 20,
+            "to": 24,
+            "label": "1G",
+            "color": "brown"
+        },
+        {
+            "from": 20,
+            "to": 25,
+            "label": "Wi-Fi",
+            "color": "purple"
+        }
+    ]
+}
