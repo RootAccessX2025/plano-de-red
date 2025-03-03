@@ -21,7 +21,8 @@
       margin-bottom: 15px;
     }
     .controls input,
-    .controls button {
+    .controls button,
+    .controls label {
       padding: 10px;
       margin: 5px;
       border: none;
@@ -41,19 +42,15 @@
       border-radius: 10px;
       max-width: 100%;
       max-height: 80vh;
-      position: relative;
-      transform-origin: top left;
-      white-space: nowrap;
       margin: 0 auto;
     }
     table {
       border-collapse: collapse;
       background-color: white;
-      transition: transform 0.2s ease-in-out;
       margin: 0 auto;
+      /* Se elimina la transformación para mantener la cuadricula fija */
     }
     td {
-      /* Valores por defecto; se sobreescribirán si se detectan estilos en Excel */
       text-align: center;
       font-size: 14px;
       font-weight: bold;
@@ -113,12 +110,12 @@
       <button onclick="handleFile()">Cargar Excel</button>
       <button onclick="zoomIn()">➕ Zoom In</button>
       <button onclick="zoomOut()">➖ Zoom Out</button>
-    </div>
-    <div class="controls">
-      <!-- Buscar puesto y agregar nuevo puesto -->
+      <br>
+      <!-- Buscar puesto -->
       <input type="text" id="search-input" placeholder="Buscar puesto (ej: 201)" />
       <button onclick="searchJob()">Buscar</button>
       <br>
+      <!-- Agregar nuevo puesto -->
       <input type="text" id="job-value" placeholder="Valor del puesto" />
       <input type="number" id="job-row" placeholder="Fila (0-index)" />
       <input type="number" id="job-col" placeholder="Columna (0-index)" />
@@ -140,7 +137,7 @@
     </div>
   </div>
 
-  <!-- Librería xlsx-style para leer estilos (incluye soporte para macros, sin ejecutar las macros) -->
+  <!-- Librería xlsx-style para leer estilos (incluye soporte para macros) -->
   <script src="https://unpkg.com/xlsx-style@0.8.13/dist/xlsx.full.min.js"></script>
 
   <script>
@@ -148,7 +145,7 @@
     let gridData = [];
     let merges = []; // Rangos combinados extraídos del Excel
     const defaultRows = 10, defaultCols = 10;
-    let zoomLevel = 1, offsetX = 0, offsetY = 0;
+    let zoomLevel = 1;
 
     /* Crea una cuadricula por defecto (10×10) */
     function createDefaultGrid() {
@@ -221,6 +218,8 @@
         }
         table.appendChild(tr);
       }
+      // Aplicar zoom si se ha modificado (opcional)
+      table.style.transform = `scale(${zoomLevel})`;
     }
 
     /* Función para leer el archivo Excel y procesar la hoja "Piso 1" */
@@ -238,7 +237,7 @@
         const sheet = workbook.Sheets["Piso 1"];
         const { gridData: newGrid, merges: newMerges, cols, rows } = sheetToGrid(sheet);
         mergeGrids(newGrid, newMerges);
-        // Opcional: guardar en localStorage
+        // Guarda en localStorage para persistencia
         localStorage.setItem("puestosData", JSON.stringify(gridData));
         localStorage.setItem("puestosMerges", JSON.stringify(merges));
         localStorage.setItem("sheetProps", JSON.stringify({ cols, rows }));
@@ -247,9 +246,9 @@
       reader.readAsArrayBuffer(file);
     }
 
-    /* Convierte la hoja de Excel en una matriz 2D (gridData) de objetos con:
+    /* Convierte la hoja de Excel en una matriz 2D de objetos con:
        value, bgColor, fontColor, hAlign, vAlign.
-       Además retorna merges, cols y rows (propiedades de la hoja). */
+       Retorna además merges, cols y rows. */
     function sheetToGrid(sheet) {
       const range = XLSX.utils.decode_range(sheet["!ref"]);
       const merges = sheet["!merges"] || [];
@@ -284,8 +283,8 @@
       return { gridData: grid, merges: merges, cols: cols, rows: rowsProps };
     }
 
-    /* Fusiona (merge) la cuadricula actual con la nueva proveniente del Excel.
-       Si en el Excel hay un puesto (valor no vacío) se actualiza la celda.
+    /* Fusiona la cuadricula actual con la nueva proveniente del Excel.
+       Si el Excel trae un puesto (valor no vacío) se actualiza la celda.
        Se expande la cuadricula si es necesario. */
     function mergeGrids(newGrid, newMerges) {
       const newRows = newGrid.length;
@@ -312,14 +311,13 @@
       merges = newMerges;
     }
 
-    /* Función para buscar un puesto.
-       Recorre la cuadricula y resalta (con borde rojo) las celdas cuyo contenido incluya el valor buscado. */
+    /* Función para buscar un puesto y resaltar las celdas que lo contengan */
     function searchJob() {
       const searchVal = document.getElementById("search-input").value.trim();
       if (!searchVal) return;
       const table = document.getElementById("puestos-table");
       const tds = table.getElementsByTagName("td");
-      // Elimina resaltado previo
+      // Quita resaltado previo
       for (let td of tds) {
         td.style.outline = "";
       }
@@ -342,8 +340,8 @@
       }
     }
 
-    /* Función para agregar un nuevo puesto en la posición que el usuario elija.
-       Se ingresan: valor del puesto, fila y columna (0-index) y opcionalmente colores. */
+    /* Función para agregar un nuevo puesto en la posición indicada por el usuario.
+       Se actualiza la cuadricula y se guarda en localStorage para persistir los cambios. */
     function addJob() {
       const jobVal = document.getElementById("job-value").value.trim();
       const rowInput = parseInt(document.getElementById("job-row").value);
@@ -371,6 +369,7 @@
         hAlign: "center",
         vAlign: "middle"
       };
+      localStorage.setItem("puestosData", JSON.stringify(gridData));
       renderExcelData(gridData, merges, { cols: [], rows: [] });
     }
 
@@ -389,7 +388,7 @@
       document.getElementById("info-modal").style.display = "none";
     }
 
-    /* Funciones de zoom y pan */
+    /* Funciones de zoom (la cuadricula se mantiene fija y se mueve solo con scroll nativo) */
     function zoomIn() {
       zoomLevel += 0.2;
       actualizarTransform();
@@ -402,31 +401,19 @@
     }
     function actualizarTransform() {
       document.getElementById("puestos-table").style.transform =
-        `scale(${zoomLevel}) translate(${offsetX}px, ${offsetY}px)`;
+        `scale(${zoomLevel})`;
     }
-    document.getElementById("map-container").addEventListener("mousedown", (e) => {
-      let startX = e.clientX;
-      let startY = e.clientY;
-      function onMouseMove(event) {
-        offsetX += (event.clientX - startX) / zoomLevel;
-        offsetY += (event.clientY - startY) / zoomLevel;
-        startX = event.clientX;
-        startY = event.clientY;
-        actualizarTransform();
-      }
-      function onMouseUp() {
-        document.removeEventListener("mousemove", onMouseMove);
-        document.removeEventListener("mouseup", onMouseUp);
-      }
-      document.addEventListener("mousemove", onMouseMove);
-      document.addEventListener("mouseup", onMouseUp);
-    });
 
-    // Al cargar la página, si no hay datos guardados, se crea y muestra la cuadricula por defecto
+    // Al cargar la página, si existen datos guardados se muestran; de lo contrario se crea la cuadricula por defecto
     document.addEventListener("DOMContentLoaded", () => {
       if (!localStorage.getItem("puestosData")) {
         createDefaultGrid();
         renderExcelData(gridData, [], { cols: [], rows: [] });
+      } else {
+        gridData = JSON.parse(localStorage.getItem("puestosData"));
+        merges = JSON.parse(localStorage.getItem("puestosMerges"));
+        const savedSheetProps = JSON.parse(localStorage.getItem("sheetProps"));
+        renderExcelData(gridData, merges, savedSheetProps);
       }
     });
   </script>
