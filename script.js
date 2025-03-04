@@ -8,7 +8,7 @@ let selectedCells = [] // Para almacenar las celdas seleccionadas para combinar
 // Añadir una variable global para el modo de selección
 let selectionMode = false
 
-// Actualizar la función para obtener elementos DOM para incluir el campo de servicio
+// Actualizar la función para obtener elementos DOM para incluir los nuevos elementos del modal de edición
 const elements = {
   excelFile: document.getElementById("excel-file"),
   loadExcelBtn: document.getElementById("load-excel-btn"),
@@ -22,22 +22,35 @@ const elements = {
   jobCol: document.getElementById("job-col"),
   jobBgColor: document.getElementById("job-bgcolor"),
   jobFontColor: document.getElementById("job-fontcolor"),
-  jobService: document.getElementById("job-service"), // Agregado nuevo campo
+  jobService: document.getElementById("job-service"),
   addJobBtn: document.getElementById("add-job-btn"),
   resetBtn: document.getElementById("reset-btn"),
   exportBtn: document.getElementById("export-btn"),
   statusMessage: document.getElementById("status-message"),
   puestosTable: document.getElementById("puestos-table"),
   mapWrapper: document.querySelector(".map-wrapper"),
+  mapContainer: document.getElementById("map-container"),
   infoModal: document.getElementById("info-modal"),
   modalClose: document.getElementById("modal-close"),
   modalText: document.getElementById("modal-text"),
   modalImage: document.getElementById("modal-image"),
-  mergeCellsBtn: document.getElementById("merge-cells-btn"),
-  unmergeCellsBtn: document.getElementById("unmerge-cells-btn"),
-  selectionModeBtn: document.getElementById("selection-mode-btn"),
-  clearSelectionBtn: document.getElementById("clear-selection-btn"),
+  modalEditBtn: document.getElementById("modal-edit-btn"), // We'll create this
+  editModal: document.getElementById("edit-modal"), // We'll create this
+  editModalClose: document.getElementById("edit-modal-close"), // We'll create this
+  editForm: document.getElementById("edit-form"), // We'll create this
+  editValueInput: document.getElementById("edit-value"), // We'll create this
+  editBgColorInput: document.getElementById("edit-bgcolor"), // We'll create this
+  editFontColorInput: document.getElementById("edit-fontcolor"), // We'll create this
+  editServiceInput: document.getElementById("edit-service"), // We'll create this
+  saveEditBtn: document.getElementById("save-edit-btn"), // We'll create this
+  mergeCellsBtn: document.getElementById("merge-cells-btn"), // We'll create this
+  unmergeCellsBtn: document.getElementById("unmerge-cells-btn"), // We'll create this
+  selectionModeBtn: document.getElementById("selection-mode-btn"), // We'll create this
+  clearSelectionBtn: document.getElementById("clear-selection-btn"), // We'll create this
 }
+
+// Variables para la celda que se está editando
+let currentEditCell = { row: -1, col: -1 }
 
 // Inicialización
 document.addEventListener("DOMContentLoaded", () => {
@@ -49,7 +62,74 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Crear botones para combinar/descominar celdas si no existen
   createMergeButtons()
+
+  // Crear modal de edición si no existe
+  createEditModal()
 })
+
+// Modificar la función createEditModal para mostrar la posición como información, no como campos editables
+function createEditModal() {
+  if (!document.getElementById("edit-modal")) {
+    const modalHTML = `
+      <div id="edit-modal" class="modal">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3>Editar Celda</h3>
+            <span class="close" id="edit-modal-close">&times;</span>
+          </div>
+          <div class="modal-body">
+            <form id="edit-form">
+              <div style="margin-bottom: 15px; color: #333; font-weight: bold;">
+                <!-- La posición se actualizará dinámicamente -->
+                <strong>Posición:</strong> <span id="cell-position"></span>
+              </div>
+              <div class="control-grid" style="color: #333;">
+                <div class="control-item">
+                  <label for="edit-value" style="color: #333;">Valor:</label>
+                  <input type="text" id="edit-value" class="form-control" style="color: #333; background-color: #fff; border: 1px solid #ccc;">
+                </div>
+                <div class="control-item">
+                  <label for="edit-bgcolor" style="color: #333;">Color de Fondo:</label>
+                  <input type="color" id="edit-bgcolor" class="form-control">
+                </div>
+                <div class="control-item">
+                  <label for="edit-fontcolor" style="color: #333;">Color de Texto:</label>
+                  <input type="color" id="edit-fontcolor" class="form-control">
+                </div>
+                <div class="control-item">
+                  <label for="edit-service" style="color: #333;">Servicio:</label>
+                  <input type="text" id="edit-service" class="form-control" style="color: #333; background-color: #fff; border: 1px solid #ccc;">
+                </div>
+              </div>
+              <button type="button" id="save-edit-btn" class="btn primary">Guardar Cambios</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    `
+
+    document.body.insertAdjacentHTML("beforeend", modalHTML)
+
+    // Update references to modal elements
+    elements.editModal = document.getElementById("edit-modal")
+    elements.editModalClose = document.getElementById("edit-modal-close")
+    elements.editForm = document.getElementById("edit-form")
+    elements.editValueInput = document.getElementById("edit-value")
+    elements.editBgColorInput = document.getElementById("edit-bgcolor")
+    elements.editFontColorInput = document.getElementById("edit-fontcolor")
+    elements.editServiceInput = document.getElementById("edit-service")
+    elements.saveEditBtn = document.getElementById("save-edit-btn")
+
+    // Add event listeners for the edit modal
+    elements.editModalClose.addEventListener("click", closeEditModal)
+    elements.saveEditBtn.addEventListener("click", saveEditedCell)
+    window.addEventListener("click", (e) => {
+      if (e.target === elements.editModal) {
+        closeEditModal()
+      }
+    })
+  }
+}
 
 // Crear botones para combinar/descominar celdas
 function createMergeButtons() {
@@ -58,7 +138,7 @@ function createMergeButtons() {
     controlSection.className = "control-section"
     controlSection.innerHTML = `
       <h2>Combinar Celdas</h2>
-      <p class="text-sm text-muted-foreground mb-2">Activa el modo selección y haz clic en las celdas que deseas combinar</p>
+      <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0.5rem;">Activa el modo selección y haz clic en las celdas que deseas combinar</p>
       <div class="control-group">
         <button id="selection-mode-btn" class="btn">Activar Modo Selección</button>
         <button id="merge-cells-btn" class="btn">Combinar Celdas</button>
@@ -67,18 +147,18 @@ function createMergeButtons() {
       </div>
     `
 
-    // Insertar después de la sección de búsqueda
+    // Insert after the search section with the new HTML structure
     const searchSection = document.querySelector(".control-section:nth-child(3)")
     if (searchSection) {
       searchSection.parentNode.insertBefore(controlSection, searchSection.nextSibling)
 
-      // Actualizar referencias a los botones
+      // Update references to buttons
       elements.mergeCellsBtn = document.getElementById("merge-cells-btn")
       elements.unmergeCellsBtn = document.getElementById("unmerge-cells-btn")
       elements.selectionModeBtn = document.getElementById("selection-mode-btn")
       elements.clearSelectionBtn = document.getElementById("clear-selection-btn")
 
-      // Añadir event listeners
+      // Add event listeners
       elements.mergeCellsBtn.addEventListener("click", mergeCells)
       elements.unmergeCellsBtn.addEventListener("click", unmergeCells)
       elements.selectionModeBtn.addEventListener("click", toggleSelectionMode)
@@ -91,16 +171,22 @@ function createMergeButtons() {
 function toggleSelectionMode() {
   selectionMode = !selectionMode
 
-  // Actualizar el texto del botón
+  // Update button text and style
   if (elements.selectionModeBtn) {
     elements.selectionModeBtn.textContent = selectionMode ? "Desactivar Modo Selección" : "Activar Modo Selección"
     elements.selectionModeBtn.classList.toggle("active", selectionMode)
   }
 
-  // Actualizar el cursor de la tabla
+  // Update table cursor and add visual indication
   const table = elements.puestosTable
   if (table) {
     table.style.cursor = selectionMode ? "pointer" : "default"
+  }
+
+  // Add visual indication to the container
+  const container = document.querySelector(".excel-container") || elements.mapContainer
+  if (container) {
+    container.classList.toggle("selection-mode", selectionMode)
   }
 
   updateStatus(
@@ -221,17 +307,21 @@ function createDefaultGrid() {
 function renderExcelData() {
   const table = elements.puestosTable
   table.innerHTML = ""
-  table.className = "excel-grid" // Añadir clase para estilo tipo Excel
+  table.className = "excel-grid" // Add class for Excel-like style
 
-  // Envolver la tabla en un contenedor si no existe
-  if (!document.querySelector(".excel-container")) {
-    const container = document.createElement("div")
+  // Wrap the table in a container if it doesn't exist
+  let container = document.querySelector(".excel-container")
+  if (!container) {
+    container = document.createElement("div")
     container.className = "excel-container"
-    table.parentNode.insertBefore(container, table)
+    if (elements.mapWrapper) {
+      elements.mapWrapper.innerHTML = ""
+      elements.mapWrapper.appendChild(container)
+    }
     container.appendChild(table)
   }
 
-  // Crear un mapa de celdas a omitir debido a combinaciones
+  // Create a map of cells to skip due to merges
   const skip = Array(gridData.length)
     .fill()
     .map(() => Array(gridData[0]?.length || 0).fill(false))
@@ -241,19 +331,19 @@ function renderExcelData() {
     mergesMap[`${m.s.r},${m.s.c}`] = m
   })
 
-  // Determinar el número máximo de filas y columnas
+  // Determine maximum rows and columns
   const maxRows = gridData.length
   const maxCols = Math.max(...gridData.map((row) => row.length))
 
-  // Crear fila de encabezados de columna
+  // Create column header row
   const headerRow = document.createElement("tr")
 
-  // Celda de esquina (intersección de encabezados)
+  // Corner cell (intersection of headers)
   const cornerCell = document.createElement("th")
   cornerCell.className = "corner-header"
   headerRow.appendChild(cornerCell)
 
-  // Encabezados de columna (A, B, C, ...)
+  // Column headers (A, B, C, ...)
   for (let c = 0; c < maxCols; c++) {
     const th = document.createElement("th")
     th.className = "column-header"
@@ -263,17 +353,17 @@ function renderExcelData() {
 
   table.appendChild(headerRow)
 
-  // Crear filas con datos y encabezados de fila
+  // Create rows with data and row headers
   for (let r = 0; r < maxRows; r++) {
     const tr = document.createElement("tr")
 
-    // Encabezado de fila (1, 2, 3, ...)
+    // Row header (1, 2, 3, ...)
     const rowHeader = document.createElement("th")
     rowHeader.className = "row-header"
     rowHeader.textContent = r + 1 // 1, 2, 3, ...
     tr.appendChild(rowHeader)
 
-    // Aplicar altura de fila si está definida
+    // Apply row height if defined
     if (sheetProps.rows[r]) {
       let rowHeight = sheetProps.rows[r].hpx
       if (!rowHeight && sheetProps.rows[r].hpt) {
@@ -284,9 +374,9 @@ function renderExcelData() {
       }
     }
 
-    // Crear celdas para esta fila
+    // Create cells for this row
     for (let c = 0; c < maxCols; c++) {
-      // Omitir si esta celda es parte de una combinación
+      // Skip if this cell is part of a merge
       if (skip[r] && skip[r][c]) continue
 
       const td = document.createElement("td")
@@ -303,7 +393,7 @@ function renderExcelData() {
             }
       const key = `${r},${c}`
 
-      // Manejar combinaciones de celdas
+      // Handle merged cells
       if (mergesMap[key]) {
         const m = mergesMap[key]
         const rowSpan = m.e.r - m.s.r + 1
@@ -312,7 +402,7 @@ function renderExcelData() {
         td.rowSpan = rowSpan
         td.colSpan = colSpan
 
-        // Marcar celdas combinadas para omitirlas
+        // Mark merged cells to skip them
         for (let i = r; i < r + rowSpan; i++) {
           if (!skip[i]) skip[i] = []
           for (let j = c; j < c + colSpan; j++) {
@@ -322,7 +412,7 @@ function renderExcelData() {
         }
       }
 
-      // Configurar celda
+      // Configure cell
       if (cell.value !== "" || cell.value === 0) {
         td.textContent = cell.value
         if (cell.bgColor) td.style.backgroundColor = cell.bgColor
@@ -333,22 +423,22 @@ function renderExcelData() {
         td.classList.add("empty-cell")
       }
 
-      // Almacenar datos de la celda para el modal y selección
+      // Store cell data for modal and selection
       td.dataset.row = r
       td.dataset.col = c
 
-      // Modificar el evento click para usar el modo selección
+      // Modify the click event to use selection mode
       td.addEventListener("click", (e) => {
         if (selectionMode) {
-          // En modo selección, seleccionar la celda
+          // In selection mode, select the cell
           toggleCellSelection(td)
         } else {
-          // Fuera del modo selección, mostrar detalles
+          // Outside selection mode, show details
           openModal(cell)
         }
       })
 
-      // Aplicar ancho de columna si está definida
+      // Apply column width if defined
       if (sheetProps.cols[c]) {
         let colWidth = sheetProps.cols[c].wpx
         if (!colWidth && sheetProps.cols[c].wch) {
@@ -365,16 +455,17 @@ function renderExcelData() {
     table.appendChild(tr)
   }
 
-  // Aplicar zoom
+  // Apply zoom
   applyZoom()
   updateZoomDisplay()
 
-  // Limpiar selección de celdas
+  // Clear cell selection
   selectedCells = []
 
-  // Aplicar el cursor según el modo de selección
+  // Apply cursor based on selection mode
   if (selectionMode) {
     table.style.cursor = "pointer"
+    container.classList.add("selection-mode")
   }
 }
 
@@ -506,6 +597,136 @@ function unmergeCells() {
   renderExcelData()
 
   updateStatus("Celdas descombinadas correctamente")
+}
+
+// Modificar el modal de información para incluir el botón de editar
+function openModal(cell) {
+  const { value, bgColor, fontColor, service } = cell
+
+  // Get row and column from the current event
+  const target = event.target
+  const row = Number.parseInt(target.dataset.row)
+  const col = Number.parseInt(target.dataset.col)
+
+  // Save current cell for editing
+  currentEditCell = { row, col }
+
+  // Format the modal content with the new structure
+  elements.modalText.innerHTML = `
+    <strong>Puesto:</strong> ${value || "No asignado"}<br>
+    <strong>Fondo:</strong> <span style="display:inline-block; width:20px; height:20px; background-color:${bgColor || "#ffffff"}; border:1px solid #ccc;"></span> ${bgColor || "No especificado"}<br>
+    <strong>Texto:</strong> <span style="display:inline-block; width:20px; height:20px; background-color:${fontColor || "#000000"}; border:1px solid #ccc;"></span> ${fontColor || "No especificado"}
+    ${service ? `<div class="service-info">${service}</div>` : ""}
+  `
+
+  elements.modalImage.src = "icons/pc.png"
+  elements.infoModal.style.display = "block"
+
+  // Add edit button if it doesn't exist
+  if (!document.getElementById("modal-edit-btn")) {
+    const editBtn = document.createElement("button")
+    editBtn.id = "modal-edit-btn"
+    editBtn.className = "btn primary"
+    editBtn.style.marginTop = "1rem"
+    editBtn.textContent = "Editar"
+    editBtn.addEventListener("click", () => {
+      closeModal()
+      openEditModal(cell, row, col)
+    })
+
+    // Add button to modal
+    const modalBody = elements.infoModal.querySelector(".modal-body")
+    if (modalBody) {
+      modalBody.appendChild(editBtn)
+      elements.modalEditBtn = editBtn
+    }
+  } else {
+    // Update existing button's event listener
+    elements.modalEditBtn.onclick = () => {
+      closeModal()
+      openEditModal(cell, row, col)
+    }
+  }
+
+  // Accessibility: focus the modal for screen readers
+  elements.modalClose.focus()
+}
+
+// Modificar la función openEditModal para mostrar claramente la posición de la celda
+function openEditModal(cell, row, col) {
+  const { value, bgColor, fontColor, service } = cell
+
+  // Llenar el formulario con los valores actuales
+  elements.editValueInput.value = value || ""
+  elements.editBgColorInput.value = bgColor || "#ffffff"
+  elements.editFontColorInput.value = fontColor || "#000000"
+  elements.editServiceInput.value = service || ""
+
+  // Guardar la celda actual para edición
+  currentEditCell = { row, col }
+
+  // Actualizar la información de posición en el modal
+  const positionInfo = document.querySelector("#edit-modal .modal-body > div:first-child")
+  if (positionInfo) {
+    positionInfo.innerHTML = `<strong>Posición:</strong> Fila ${row + 1}, Columna ${String.fromCharCode(65 + col)}`
+  }
+
+  // Mostrar el modal
+  elements.editModal.style.display = "block"
+
+  // Enfocar el primer campo
+  elements.editValueInput.focus()
+}
+
+// Función para cerrar el modal de edición
+function closeEditModal() {
+  elements.editModal.style.display = "none"
+}
+
+// Función para guardar los cambios de la celda editada
+function saveEditedCell() {
+  const { row, col } = currentEditCell
+
+  if (row === -1 || col === -1) {
+    updateStatus("Error: No se pudo identificar la celda a editar")
+    return
+  }
+
+  // Obtener los valores del formulario
+  const value = elements.editValueInput.value.trim()
+  const bgColor = elements.editBgColorInput.value
+  const fontColor = elements.editFontColorInput.value
+  const service = elements.editServiceInput.value.trim()
+
+  // Actualizar la celda en la cuadrícula
+  if (!gridData[row]) {
+    gridData[row] = []
+  }
+
+  if (!gridData[row][col]) {
+    gridData[row][col] = {
+      value: "",
+      bgColor: "",
+      fontColor: "",
+      hAlign: "center",
+      vAlign: "middle",
+      service: "",
+    }
+  }
+
+  gridData[row][col].value = value
+  gridData[row][col].bgColor = bgColor
+  gridData[row][col].fontColor = fontColor
+  gridData[row][col].service = service
+
+  // Guardar y renderizar
+  saveToLocalStorage()
+  renderExcelData()
+
+  // Cerrar el modal
+  closeEditModal()
+
+  updateStatus(`Celda [${row},${col}] actualizada correctamente`)
 }
 
 // Declarar XLSX antes de usarlo
@@ -717,7 +938,6 @@ function sheetToGrid(sheet) {
 
       row.push(cellObj)
     }
-    grid.push(row)
   }
 
   // Segunda pasada para tratar de inferir servicios de celdas cercanas
@@ -980,23 +1200,6 @@ function updateZoomDisplay() {
 }
 
 // Modal
-function openModal(cell) {
-  const { value, bgColor, fontColor, service } = cell
-
-  elements.modalText.innerHTML = `
-    <strong>Puesto:</strong> ${value}<br>
-    <strong>Fondo:</strong> ${bgColor || "No especificado"}<br>
-    <strong>Texto:</strong> ${fontColor || "No especificado"}
-    ${service ? `<br><strong>Servicio:</strong> ${service}` : ""}
-  `
-
-  elements.modalImage.src = "icons/pc.png"
-  elements.infoModal.style.display = "block"
-
-  // Accesibilidad: enfocar el modal para lectores de pantalla
-  elements.modalClose.focus()
-}
-
 function closeModal() {
   elements.infoModal.style.display = "none"
 }
