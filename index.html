@@ -4,431 +4,108 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Mapa de Puestos - Piso 1</title>
-  <style>
-    /* Estilos básicos */
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #1a1a2e;
-      color: white;
-      text-align: center;
-      margin: 0;
-      padding: 0;
-    }
-    .container {
-      padding: 20px;
-    }
-    .controls {
-      margin-bottom: 15px;
-    }
-    .controls input,
-    .controls button {
-      padding: 10px;
-      margin: 5px;
-      border: none;
-      border-radius: 5px;
-      background-color: #4c4c6d;
-      color: white;
-      cursor: pointer;
-      font-size: 14px;
-    }
-    .controls button:hover {
-      background-color: #6a6a9f;
-    }
-    .map-container {
-      overflow: auto;
-      background-color: #0f3460;
-      padding: 20px;
-      border-radius: 10px;
-      max-width: 100%;
-      max-height: 80vh;
-      position: relative;
-      transform-origin: top left;
-      white-space: nowrap;
-      margin: 0 auto;
-    }
-    table {
-      border-collapse: collapse;
-      background-color: white;
-      transition: transform 0.2s ease-in-out;
-      margin: 0 auto;
-    }
-    td {
-      /* Valores por defecto; se sobreescribirán si se detectan estilos en Excel */
-      text-align: center;
-      font-size: 14px;
-      font-weight: bold;
-      color: black;
-      border: 1px solid black;
-      cursor: pointer;
-      border-radius: 3px;
-      box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.2);
-      vertical-align: middle;
-      padding: 2px;
-      min-width: 50px;
-      min-height: 40px;
-    }
-    .empty-cell {
-      background-color: transparent !important;
-      border: none !important;
-      cursor: default !important;
-    }
-    /* Modal para ver detalles */
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 1;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      color: #000;
-      background-color: rgba(0, 0, 0, 0.5);
-    }
-    .modal-content {
-      background-color: white;
-      padding: 10px;
-      margin: 15% auto;
-      width: 25%;
-      border-radius: 10px;
-      text-align: center;
-    }
-    .close {
-      color: red;
-      float: right;
-      font-size: 20px;
-      cursor: pointer;
-    }
-    .modal img {
-      max-width: 60px;
-      margin-top: 10px;
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <div class="container">
-    <h2>Mapa de Puestos - Piso 1</h2>
-    <div class="controls">
-      <!-- Cargar archivo Excel -->
-      <input type="file" id="excel-file" accept=".xls, .xlsx, .xlsm" />
-      <button onclick="handleFile()">Cargar Excel</button>
-      <button onclick="zoomIn()">➕ Zoom In</button>
-      <button onclick="zoomOut()">➖ Zoom Out</button>
+    <h1>Mapa de Puestos - Piso 1</h1>
+    
+    <div class="controls-container">
+      <!-- Sección de carga de Excel -->
+      <div class="control-section">
+        <h2>Cargar Datos</h2>
+        <div class="control-group">
+          <input type="file" id="excel-file" accept=".xls, .xlsx, .xlsm" aria-label="Seleccionar archivo Excel" />
+          <button id="load-excel-btn" class="btn primary">Cargar Excel</button>
+        </div>
+      </div>
+      
+      <!-- Sección de zoom -->
+      <div class="control-section">
+        <h2>Zoom</h2>
+        <div class="control-group">
+          <button id="zoom-in-btn" class="btn">➕ Zoom In</button>
+          <button id="zoom-out-btn" class="btn">➖ Zoom Out</button>
+          <span id="zoom-level">100%</span>
+        </div>
+      </div>
+      
+      <!-- Sección de búsqueda -->
+      <div class="control-section">
+        <h2>Buscar</h2>
+        <div class="control-group">
+          <input type="text" id="search-input" placeholder="Buscar por puesto o servicio" aria-label="Buscar puesto o servicio" />
+          <button id="search-btn" class="btn">🔍 Buscar</button>
+        </div>
+      </div>
+      
+      <!-- Sección para agregar puestos -->
+      <div class="control-section">
+        <h2>Agregar Puesto</h2>
+        <div class="control-grid">
+          <div class="control-item">
+            <label for="job-value">Valor del puesto:</label>
+            <input type="text" id="job-value" placeholder="Ej: 201" />
+          </div>
+          <div class="control-item">
+            <label for="job-row">Fila (0-index):</label>
+            <input type="number" id="job-row" min="0" placeholder="Ej: 5" />
+          </div>
+          <div class="control-item">
+            <label for="job-col">Columna (0-index):</label>
+            <input type="number" id="job-col" min="0" placeholder="Ej: 3" />
+          </div>
+          <div class="control-item">
+            <label for="job-bgcolor">Color de fondo:</label>
+            <input type="color" id="job-bgcolor" value="#ffffff" />
+          </div>
+          <div class="control-item">
+            <label for="job-fontcolor">Color de texto:</label>
+            <input type="color" id="job-fontcolor" value="#000000" />
+          </div>
+          <div class="control-item">
+            <label for="job-service">Servicio:</label>
+            <input type="text" id="job-service" placeholder="Ej: Contabilidad" />
+          </div>
+        </div>
+        <button id="add-job-btn" class="btn primary">Agregar Puesto</button>
+      </div>
     </div>
-    <div class="controls">
-      <!-- Buscar puesto y agregar nuevo puesto -->
-      <input type="text" id="search-input" placeholder="Buscar puesto (ej: 201)" />
-      <button onclick="searchJob()">Buscar</button>
-      <br>
-      <input type="text" id="job-value" placeholder="Valor del puesto" />
-      <input type="number" id="job-row" placeholder="Fila (0-index)" />
-      <input type="number" id="job-col" placeholder="Columna (0-index)" />
-      <input type="text" id="job-bgcolor" placeholder="Color de fondo (hex)" />
-      <input type="text" id="job-fontcolor" placeholder="Color de texto (hex)" />
-      <button onclick="addJob()">Agregar Puesto</button>
-    </div>
+    
+    <!-- Contenedor del mapa -->
     <div class="map-container" id="map-container">
-      <table id="puestos-table"></table>
+      <div class="map-wrapper">
+        <table id="puestos-table"></table>
+      </div>
+    </div>
+    
+    <!-- Información del estado -->
+    <div class="status-bar">
+      <span id="status-message">Listo</span>
+      <button id="reset-btn" class="btn small">Reiniciar Mapa</button>
+      <button id="export-btn" class="btn small">Exportar Datos</button>
     </div>
   </div>
 
+  <!-- Modal para ver detalles -->
   <div id="info-modal" class="modal">
     <div class="modal-content">
-      <span class="close" onclick="cerrarModal()">&times;</span>
-      <h3>Detalles del Puesto</h3>
-      <p id="modal-text"></p>
-      <img id="modal-image" src="" alt="PC del puesto" />
+      <div class="modal-header">
+        <h3>Detalles del Puesto</h3>
+        <span class="close" id="modal-close">&times;</span>
+      </div>
+      <div class="modal-body">
+        <p id="modal-text"></p>
+        <div class="modal-image-container">
+          <img id="modal-image" src="icons/pc.png" alt="PC del puesto" />
+        </div>
+      </div>
     </div>
   </div>
 
-  <!-- Librería xlsx-style para leer estilos (incluye soporte para macros, sin ejecutar las macros) -->
+  <!-- Librería xlsx-style para leer estilos (incluye soporte para macros) -->
   <script src="https://unpkg.com/xlsx-style@0.8.13/dist/xlsx.full.min.js"></script>
-
-  <script>
-    /* Variables globales para la cuadricula */
-    let gridData = [];
-    let merges = []; // Rangos combinados extraídos del Excel
-    const defaultRows = 10, defaultCols = 10;
-    let zoomLevel = 1, offsetX = 0, offsetY = 0;
-
-    /* Crea una cuadricula por defecto (10×10) */
-    function createDefaultGrid() {
-      gridData = [];
-      for (let i = 0; i < defaultRows; i++) {
-        let row = [];
-        for (let j = 0; j < defaultCols; j++) {
-          row.push({ value: "", bgColor: "", fontColor: "", hAlign: "center", vAlign: "middle" });
-        }
-        gridData.push(row);
-      }
-      merges = [];
-    }
-
-    /* Renderiza la cuadricula en la tabla HTML, aplicando merges y estilos */
-    function renderExcelData(data, mergeData, sheetProps) {
-      const table = document.getElementById("puestos-table");
-      table.innerHTML = "";
-      const rowsProps = sheetProps.rows || [];
-      const colsProps = sheetProps.cols || [];
-      const skip = new Array(data.length).fill(null).map(() => new Array(data[0].length).fill(false));
-      const mergesMap = {};
-      mergeData.forEach(m => {
-        mergesMap[m.s.r + "," + m.s.c] = m;
-      });
-      for (let r = 0; r < data.length; r++) {
-        const tr = document.createElement("tr");
-        // Si hay altura de fila definida, se aplica
-        if (rowsProps[r]) {
-          let rowHeight = rowsProps[r].hpx;
-          if (!rowHeight && rowsProps[r].hpt) rowHeight = Math.round(rowsProps[r].hpt * 1.33);
-          if (rowHeight) tr.style.height = rowHeight + "px";
-        }
-        for (let c = 0; c < data[r].length; c++) {
-          if (skip[r][c]) continue;
-          const td = document.createElement("td");
-          const cell = data[r][c];
-          const key = r + "," + c;
-          if (mergesMap[key]) {
-            const m = mergesMap[key];
-            const rowSpan = m.e.r - m.s.r + 1;
-            const colSpan = m.e.c - m.s.c + 1;
-            td.rowSpan = rowSpan;
-            td.colSpan = colSpan;
-            // Marcar celdas combinadas como omitidas
-            for (let i = r; i < r + rowSpan; i++) {
-              for (let j = c; j < c + colSpan; j++) {
-                if (i === r && j === c) continue;
-                skip[i][j] = true;
-              }
-            }
-          }
-          if (cell.value !== "" || cell.value === 0) {
-            td.textContent = cell.value;
-            if (cell.bgColor) td.style.backgroundColor = cell.bgColor;
-            if (cell.fontColor) td.style.color = cell.fontColor;
-            td.style.textAlign = cell.hAlign || "center";
-            td.style.verticalAlign = cell.vAlign || "middle";
-            td.onclick = () => abrirModal(cell);
-          } else {
-            td.classList.add("empty-cell");
-          }
-          // Aplicar ancho de columna si está definido
-          if (colsProps[c]) {
-            let colWidth = colsProps[c].wpx;
-            if (!colWidth && colsProps[c].wch) colWidth = Math.round(colsProps[c].wch * 7);
-            if (colWidth) td.style.width = colWidth + "px";
-          }
-          tr.appendChild(td);
-        }
-        table.appendChild(tr);
-      }
-    }
-
-    /* Función para leer el archivo Excel y procesar la hoja "Piso 1" */
-    function handleFile() {
-      const file = document.getElementById("excel-file").files[0];
-      if (!file) return;
-      const reader = new FileReader();
-      reader.onload = function (evt) {
-        const data = new Uint8Array(evt.target.result);
-        const workbook = XLSX.read(data, { type: "array", bookVBA: true });
-        if (!workbook.SheetNames.includes("Piso 1")) {
-          alert("La hoja 'Piso 1' no se encontró en el archivo.");
-          return;
-        }
-        const sheet = workbook.Sheets["Piso 1"];
-        const { gridData: newGrid, merges: newMerges, cols, rows } = sheetToGrid(sheet);
-        mergeGrids(newGrid, newMerges);
-        // Opcional: guardar en localStorage
-        localStorage.setItem("puestosData", JSON.stringify(gridData));
-        localStorage.setItem("puestosMerges", JSON.stringify(merges));
-        localStorage.setItem("sheetProps", JSON.stringify({ cols, rows }));
-        renderExcelData(gridData, merges, { cols, rows });
-      };
-      reader.readAsArrayBuffer(file);
-    }
-
-    /* Convierte la hoja de Excel en una matriz 2D (gridData) de objetos con:
-       value, bgColor, fontColor, hAlign, vAlign.
-       Además retorna merges, cols y rows (propiedades de la hoja). */
-    function sheetToGrid(sheet) {
-      const range = XLSX.utils.decode_range(sheet["!ref"]);
-      const merges = sheet["!merges"] || [];
-      const grid = [];
-      for (let r = range.s.r; r <= range.e.r; r++) {
-        const row = [];
-        for (let c = range.s.c; c <= range.e.c; c++) {
-          const cellAddress = XLSX.utils.encode_cell({ r, c });
-          const cell = sheet[cellAddress];
-          let cellObj = { value: "", bgColor: "", fontColor: "", hAlign: "center", vAlign: "middle" };
-          if (cell) {
-            cellObj.value = cell.v ?? "";
-            if (cell.s && cell.s.fill) {
-              if (cell.s.fill.fgColor && cell.s.fill.fgColor.rgb)
-                cellObj.bgColor = "#" + cell.s.fill.fgColor.rgb.slice(-6);
-              else if (cell.s.fill.startColor && cell.s.fill.startColor.rgb)
-                cellObj.bgColor = "#" + cell.s.fill.startColor.rgb.slice(-6);
-            }
-            if (cell.s && cell.s.font && cell.s.font.color && cell.s.font.color.rgb)
-              cellObj.fontColor = "#" + cell.s.font.color.rgb.slice(-6);
-            if (cell.s && cell.s.alignment) {
-              if (cell.s.alignment.horizontal) cellObj.hAlign = cell.s.alignment.horizontal;
-              if (cell.s.alignment.vertical) cellObj.vAlign = cell.s.alignment.vertical;
-            }
-          }
-          row.push(cellObj);
-        }
-        grid.push(row);
-      }
-      const cols = sheet["!cols"] || [];
-      const rowsProps = sheet["!rows"] || [];
-      return { gridData: grid, merges: merges, cols: cols, rows: rowsProps };
-    }
-
-    /* Fusiona (merge) la cuadricula actual con la nueva proveniente del Excel.
-       Si en el Excel hay un puesto (valor no vacío) se actualiza la celda.
-       Se expande la cuadricula si es necesario. */
-    function mergeGrids(newGrid, newMerges) {
-      const newRows = newGrid.length;
-      const newCols = newGrid[0] ? newGrid[0].length : 0;
-      const currRows = gridData.length;
-      const currCols = gridData[0] ? gridData[0].length : 0;
-      const maxRows = Math.max(currRows, newRows);
-      const maxCols = Math.max(currCols, newCols);
-      for (let i = 0; i < maxRows; i++) {
-        if (!gridData[i]) {
-          gridData[i] = [];
-        }
-        for (let j = gridData[i].length; j < maxCols; j++) {
-          gridData[i][j] = { value: "", bgColor: "", fontColor: "", hAlign: "center", vAlign: "middle" };
-        }
-      }
-      for (let i = 0; i < newRows; i++) {
-        for (let j = 0; j < newCols; j++) {
-          if (newGrid[i][j].value !== "") {
-            gridData[i][j] = newGrid[i][j];
-          }
-        }
-      }
-      merges = newMerges;
-    }
-
-    /* Función para buscar un puesto.
-       Recorre la cuadricula y resalta (con borde rojo) las celdas cuyo contenido incluya el valor buscado. */
-    function searchJob() {
-      const searchVal = document.getElementById("search-input").value.trim();
-      if (!searchVal) return;
-      const table = document.getElementById("puestos-table");
-      const tds = table.getElementsByTagName("td");
-      // Elimina resaltado previo
-      for (let td of tds) {
-        td.style.outline = "";
-      }
-      let found = false;
-      for (let r = 0; r < gridData.length; r++) {
-        for (let c = 0; c < gridData[r].length; c++) {
-          if (gridData[r][c].value.toString().includes(searchVal)) {
-            for (let td of tds) {
-              if (td.textContent === gridData[r][c].value) {
-                td.style.outline = "3px solid red";
-                td.scrollIntoView({ behavior: "smooth", block: "center" });
-                found = true;
-              }
-            }
-          }
-        }
-      }
-      if (!found) {
-        alert("Puesto no encontrado.");
-      }
-    }
-
-    /* Función para agregar un nuevo puesto en la posición que el usuario elija.
-       Se ingresan: valor del puesto, fila y columna (0-index) y opcionalmente colores. */
-    function addJob() {
-      const jobVal = document.getElementById("job-value").value.trim();
-      const rowInput = parseInt(document.getElementById("job-row").value);
-      const colInput = parseInt(document.getElementById("job-col").value);
-      const bgColor = document.getElementById("job-bgcolor").value.trim();
-      const fontColor = document.getElementById("job-fontcolor").value.trim();
-      if (isNaN(rowInput) || isNaN(colInput) || jobVal === "") {
-        alert("Ingrese un valor de puesto, fila y columna válidos.");
-        return;
-      }
-      while (gridData.length <= rowInput) {
-        let newRow = [];
-        for (let j = 0; j < (gridData[0] ? gridData[0].length : defaultCols); j++) {
-          newRow.push({ value: "", bgColor: "", fontColor: "", hAlign: "center", vAlign: "middle" });
-        }
-        gridData.push(newRow);
-      }
-      while (gridData[rowInput].length <= colInput) {
-        gridData[rowInput].push({ value: "", bgColor: "", fontColor: "", hAlign: "center", vAlign: "middle" });
-      }
-      gridData[rowInput][colInput] = {
-        value: jobVal,
-        bgColor: bgColor,
-        fontColor: fontColor,
-        hAlign: "center",
-        vAlign: "middle"
-      };
-      renderExcelData(gridData, merges, { cols: [], rows: [] });
-    }
-
-    function abrirModal(cellData) {
-      const { value, bgColor, fontColor } = cellData;
-      document.getElementById("modal-text").innerHTML = `
-        <strong>Puesto:</strong> ${value}<br>
-        <strong>Fondo:</strong> ${bgColor || "No especificado"}<br>
-        <strong>Texto:</strong> ${fontColor || "No especificado"}
-      `;
-      document.getElementById("modal-image").src = "icons/pc.png";
-      document.getElementById("info-modal").style.display = "block";
-    }
-
-    function cerrarModal() {
-      document.getElementById("info-modal").style.display = "none";
-    }
-
-    /* Funciones de zoom y pan */
-    function zoomIn() {
-      zoomLevel += 0.2;
-      actualizarTransform();
-    }
-    function zoomOut() {
-      if (zoomLevel > 0.4) {
-        zoomLevel -= 0.2;
-        actualizarTransform();
-      }
-    }
-    function actualizarTransform() {
-      document.getElementById("puestos-table").style.transform =
-        `scale(${zoomLevel}) translate(${offsetX}px, ${offsetY}px)`;
-    }
-    document.getElementById("map-container").addEventListener("mousedown", (e) => {
-      let startX = e.clientX;
-      let startY = e.clientY;
-      function onMouseMove(event) {
-        offsetX += (event.clientX - startX) / zoomLevel;
-        offsetY += (event.clientY - startY) / zoomLevel;
-        startX = event.clientX;
-        startY = event.clientY;
-        actualizarTransform();
-      }
-      function onMouseUp() {
-        document.removeEventListener("mousemove", onMouseMove);
-        document.removeEventListener("mouseup", onMouseUp);
-      }
-      document.addEventListener("mousemove", onMouseMove);
-      document.addEventListener("mouseup", onMouseUp);
-    });
-
-    // Al cargar la página, si no hay datos guardados, se crea y muestra la cuadricula por defecto
-    document.addEventListener("DOMContentLoaded", () => {
-      if (!localStorage.getItem("puestosData")) {
-        createDefaultGrid();
-        renderExcelData(gridData, [], { cols: [], rows: [] });
-      }
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
+
