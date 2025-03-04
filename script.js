@@ -348,7 +348,7 @@ function renderExcelData() {
         }
       })
 
-      // Aplicar ancho de columna si está definido
+      // Aplicar ancho de columna si está definida
       if (sheetProps.cols[c]) {
         let colWidth = sheetProps.cols[c].wpx
         if (!colWidth && sheetProps.cols[c].wch) {
@@ -380,8 +380,8 @@ function renderExcelData() {
 
 // Función para seleccionar/deseleccionar celdas para combinar
 function toggleCellSelection(cell) {
-  // Ignorar encabezados
-  if (cell.tagName === "TH" || cell.classList.contains("empty-cell")) {
+  // Only ignore header cells, but allow empty cells
+  if (cell.tagName === "TH") {
     return
   }
 
@@ -407,7 +407,7 @@ function toggleCellSelection(cell) {
 // Función para combinar celdas seleccionadas
 function mergeCells() {
   if (selectedCells.length < 2) {
-    updateStatus("Selecciona al menos 2 celdas para combinar (Ctrl+Click)")
+    updateStatus("Selecciona al menos 2 celdas para combinar")
     return
   }
 
@@ -420,25 +420,7 @@ function mergeCells() {
   const minCol = Math.min(...cols)
   const maxCol = Math.max(...cols)
 
-  // Verificar si la selección forma un rectángulo
-  let isRectangle = true
-  for (let r = minRow; r <= maxRow; r++) {
-    for (let c = minCol; c <= maxCol; c++) {
-      const found = selectedCells.some((cell) => cell.row === r && cell.col === c)
-      if (!found) {
-        isRectangle = false
-        break
-      }
-    }
-    if (!isRectangle) break
-  }
-
-  if (!isRectangle) {
-    updateStatus("Error: La selección debe formar un rectángulo")
-    return
-  }
-
-  // Crear un nuevo merge
+  // Crear un nuevo merge que abarque todas las celdas seleccionadas
   const newMerge = {
     s: { r: minRow, c: minCol },
     e: { r: maxRow, c: maxCol },
@@ -466,19 +448,18 @@ function mergeCells() {
   const firstCell = gridData[minRow][minCol]
   let combinedValue = firstCell.value || ""
 
-  for (let r = minRow; r <= maxRow; r++) {
-    for (let c = minCol; c <= maxCol; c++) {
-      if (r === minRow && c === minCol) continue // Saltar la primera celda
+  // Combinar el contenido de todas las celdas seleccionadas
+  selectedCells.forEach((cell) => {
+    if (cell.row === minRow && cell.col === minCol) return // Saltar la primera celda
 
-      const cellValue = gridData[r][c].value
-      if (cellValue && cellValue !== combinedValue) {
-        combinedValue += cellValue ? (combinedValue ? " " + cellValue : cellValue) : ""
-      }
-
-      // Limpiar la celda
-      gridData[r][c].value = ""
+    const cellValue = gridData[cell.row][cell.col].value
+    if (cellValue && cellValue !== combinedValue) {
+      combinedValue += cellValue ? (combinedValue ? " " + cellValue : cellValue) : ""
     }
-  }
+
+    // Limpiar la celda
+    gridData[cell.row][cell.col].value = ""
+  })
 
   // Actualizar el valor de la primera celda
   gridData[minRow][minCol].value = combinedValue
@@ -546,18 +527,30 @@ function handleFile() {
       // Declarar XLSX antes de usarlo
       /* global XLSX */
       const data = new Uint8Array(evt.target.result)
-      const workbook = XLSX.read(data, { type: "array", bookVBA: true })
+      const workbook = XLSX.read(data, {
+        type: "array",
+        bookVBA: true,
+        cellStyles: true,
+        cellNF: true,
+        cellDates: true,
+      })
 
-      if (!workbook.SheetNames.includes("Piso 1")) {
-        updateStatus('Error: La hoja "Piso 1" no se encontró en el archivo')
+      // Permitir cualquier hoja, no solo "Piso 1"
+      if (workbook.SheetNames.length === 0) {
+        updateStatus("Error: No se encontraron hojas en el archivo")
         return
       }
 
-      const sheet = workbook.Sheets["Piso 1"]
+      // Usar la primera hoja por defecto, o permitir al usuario elegir
+      const sheetName = workbook.SheetNames[0]
+      const sheet = workbook.Sheets[sheetName]
+
+      updateStatus(`Procesando hoja "${sheetName}"...`)
+
       const { gridData: newGrid, merges: newMerges, cols, rows } = sheetToGrid(sheet)
 
-      // Fusionar con datos existentes
-      gridData = mergeGrids(newGrid)
+      // Fusionar con datos existentes o reemplazar completamente
+      gridData = newGrid // Reemplazar en lugar de fusionar para mantener la estructura exacta
       merges = newMerges
       sheetProps = { cols, rows }
 
@@ -566,14 +559,15 @@ function handleFile() {
 
       // Renderizar
       renderExcelData()
-      updateStatus("Archivo Excel cargado correctamente")
+      updateStatus(`Archivo Excel cargado correctamente. Hoja: "${sheetName}"`)
     } catch (error) {
       console.error("Error al procesar el archivo Excel:", error)
-      updateStatus("Error al procesar el archivo Excel")
+      updateStatus("Error al procesar el archivo Excel: " + error.message)
     }
   }
 
-  reader.onerror = () => {
+  reader.onerror = (error) => {
+    console.error("Error al leer el archivo:", error)
     updateStatus("Error al leer el archivo")
   }
 
@@ -582,33 +576,78 @@ function handleFile() {
 
 // Convertir hoja Excel a formato de cuadrícula
 function sheetToGrid(sheet) {
+  if (!sheet || !sheet["!ref"]) {
+    throw new Error("La hoja de Excel está vacía o no tiene un rango válido")
+  }
+
   const range = XLSX.utils.decode_range(sheet["!ref"])
   const merges = sheet["!merges"] || []
   const grid = []
 
+  // Crear una matriz para rastrear qué celdas están en combinaciones
+  const mergedCells = {}
+  merges.forEach((merge) => {
+    for (let r = merge.s.r; r <= merge.e.r; r++) {
+      for (let c = merge.s.c; c <= merge.e.c; c++) {
+        // Marcar todas las celdas en la combinación
+        mergedCells[`${r},${c}`] = {
+          isStart: r === merge.s.r && c === merge.s.c,
+          parentCell: `${merge.s.r},${merge.s.c}`,
+        }
+      }
+    }
+  })
+
+  // Procesar todas las celdas en el rango
   for (let r = range.s.r; r <= range.e.r; r++) {
     const row = []
     for (let c = range.s.c; c <= range.e.c; c++) {
       const cellAddress = XLSX.utils.encode_cell({ r, c })
       const cell = sheet[cellAddress]
+
+      // Verificar si esta celda es parte de una combinación pero no es la celda principal
+      const mergeKey = `${r},${c}`
+      if (mergedCells[mergeKey] && !mergedCells[mergeKey].isStart) {
+        // Para celdas secundarias en una combinación, crear un objeto vacío
+        row.push({
+          value: "",
+          bgColor: "",
+          fontColor: "",
+          hAlign: "center",
+          vAlign: "middle",
+          service: "",
+          isMerged: true,
+          mergeParent: mergedCells[mergeKey].parentCell,
+        })
+        continue
+      }
+
+      // Procesar celda normal o celda principal de una combinación
       const cellObj = {
         value: "",
         bgColor: "",
         fontColor: "",
         hAlign: "center",
         vAlign: "middle",
-        service: "", // Agregamos campo para servicio
+        service: "",
+        isMerged: mergedCells[mergeKey] ? true : false,
       }
 
       if (cell) {
-        cellObj.value = cell.v ?? ""
+        // Extraer valor de la celda
+        if (cell.t === "d" && cell.v) {
+          // Formatear fechas
+          cellObj.value = new Date(cell.v).toLocaleDateString()
+        } else if (cell.v !== undefined) {
+          cellObj.value = cell.v
+        }
 
         // Extraer color de fondo de manera más robusta
         if (cell.s && cell.s.fill) {
           // Intentar varios métodos para obtener el color de fondo
           if (cell.s.fill.fgColor && cell.s.fill.fgColor.rgb) {
             cellObj.bgColor = "#" + cell.s.fill.fgColor.rgb.slice(-6)
-          } else if (cell.s.fill.fgColor && cell.s.fill.fgColor.theme) {
+          } else if (cell.s.fill.fgColor && cell.s.fill.fgColor.theme !== undefined) {
             // Colores basados en temas
             const themeColors = [
               "FFFFFF",
@@ -622,7 +661,8 @@ function sheetToGrid(sheet) {
               "4BACC6",
               "F79646",
             ]
-            const themeColor = themeColors[cell.s.fill.fgColor.theme] || "FFFFFF"
+            const themeColor =
+              cell.s.fill.fgColor.theme < themeColors.length ? themeColors[cell.s.fill.fgColor.theme] : "FFFFFF"
             cellObj.bgColor = "#" + themeColor
           } else if (cell.s.fill.patternType && cell.s.fill.patternType === "solid") {
             if (cell.s.fill.bgColor && cell.s.fill.bgColor.rgb) {
@@ -637,7 +677,7 @@ function sheetToGrid(sheet) {
         if (cell.s && cell.s.font) {
           if (cell.s.font.color && cell.s.font.color.rgb) {
             cellObj.fontColor = "#" + cell.s.font.color.rgb.slice(-6)
-          } else if (cell.s.font.color && cell.s.font.color.theme) {
+          } else if (cell.s.font.color && cell.s.font.color.theme !== undefined) {
             const themeColors = [
               "000000",
               "FFFFFF",
@@ -650,7 +690,8 @@ function sheetToGrid(sheet) {
               "000000",
               "FFFFFF",
             ]
-            const themeColor = themeColors[cell.s.font.color.theme] || "000000"
+            const themeColor =
+              cell.s.font.color.theme < themeColors.length ? themeColors[cell.s.font.color.theme] : "000000"
             cellObj.fontColor = "#" + themeColor
           }
         }
@@ -698,11 +739,36 @@ function sheetToGrid(sheet) {
     }
   }
 
+  // Extraer información de columnas y filas
+  const cols = sheet["!cols"] || []
+  const rows = sheet["!rows"] || []
+
+  // Si no hay información de columnas, intentar inferir anchos razonables
+  if (cols.length === 0) {
+    for (let c = range.s.c; c <= range.e.c; c++) {
+      cols[c] = { wch: 10 } // Ancho predeterminado
+
+      // Buscar el contenido más largo en esta columna
+      let maxLength = 0
+      for (let r = range.s.r; r <= range.e.r; r++) {
+        if (grid[r] && grid[r][c] && grid[r][c].value) {
+          const length = String(grid[r][c].value).length
+          maxLength = Math.max(maxLength, length)
+        }
+      }
+
+      // Ajustar el ancho basado en el contenido
+      if (maxLength > 0) {
+        cols[c].wch = Math.min(50, Math.max(10, maxLength + 2))
+      }
+    }
+  }
+
   return {
     gridData: grid,
     merges: merges,
-    cols: sheet["!cols"] || [],
-    rows: sheet["!rows"] || [],
+    cols: cols,
+    rows: rows,
   }
 }
 
