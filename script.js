@@ -65,6 +65,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Crear modal de edición si no existe
   createEditModal()
+
+  //
+  exportReport()
 })
 
 // Modificar la función createEditModal para mostrar la posición como información, no como campos editables
@@ -1310,6 +1313,142 @@ function exportData() {
     updateStatus("Error al exportar datos: " + error.message)
   }
 }
+
+// Función para exportar un informe detallado
+function exportReport() {
+    try {
+      updateStatus("Preparando informe detallado...");
+  
+      // Crear una hoja de trabajo para el informe
+      const ws = {};
+      
+      // Definir encabezados del informe
+      const headers = ["Posición", "Puesto", "Color de Fondo", "Color de Texto", "Servicio"];
+      
+      // Añadir encabezados
+      for (let i = 0; i < headers.length; i++) {
+        const cellRef = XLSX.utils.encode_cell({ r: 0, c: i });
+        ws[cellRef] = { v: headers[i], t: 's' };
+        // Estilo para encabezados
+        ws[cellRef].s = {
+          font: { bold: true },
+          fill: { patternType: 'solid', fgColor: { rgb: "E0E0E0" } },
+          alignment: { horizontal: 'center', vertical: 'center' }
+        };
+      }
+      
+      // Contador de filas para el informe
+      let reportRow = 1;
+      
+      // Recorrer todas las celdas de la cuadrícula
+      for (let r = 0; r < gridData.length; r++) {
+        for (let c = 0; c < gridData[r].length; c++) {
+          // Obtener datos de la celda
+          const cell = gridData[r][c];
+          
+          // Verificar si la celda tiene algún dato relevante (valor, color o servicio)
+          if (cell && (cell.value || cell.bgColor || cell.fontColor || cell.service)) {
+            // Posición (A1, B2, etc.)
+            const positionRef = XLSX.utils.encode_cell({ r: reportRow, c: 0 });
+            ws[positionRef] = { 
+              v: `${String.fromCharCode(65 + c)}${r + 1}`, 
+              t: 's',
+              s: { alignment: { horizontal: 'center' } }
+            };
+            
+            // Valor del puesto
+            const valueRef = XLSX.utils.encode_cell({ r: reportRow, c: 1 });
+            ws[valueRef] = { 
+              v: cell.value || "(vacío)", 
+              t: 's' 
+            };
+            
+            // Color de fondo
+            const bgColorRef = XLSX.utils.encode_cell({ r: reportRow, c: 2 });
+            ws[bgColorRef] = { 
+              v: cell.bgColor || "#FFFFFF", 
+              t: 's',
+              s: { 
+                fill: { 
+                  patternType: 'solid', 
+                  fgColor: { rgb: (cell.bgColor || "#FFFFFF").replace("#", "") } 
+                },
+                alignment: { horizontal: 'center' }
+              }
+            };
+            
+            // Color de texto
+            const fontColorRef = XLSX.utils.encode_cell({ r: reportRow, c: 3 });
+            ws[fontColorRef] = { 
+              v: cell.fontColor || "#000000", 
+              t: 's',
+              s: { 
+                font: { 
+                  color: { rgb: (cell.fontColor || "#000000").replace("#", "") } 
+                },
+                alignment: { horizontal: 'center' }
+              }
+            };
+            
+            // Servicio
+            const serviceRef = XLSX.utils.encode_cell({ r: reportRow, c: 4 });
+            ws[serviceRef] = { 
+              v: cell.service || "(sin servicio)", 
+              t: 's' 
+            };
+            
+            // Incrementar contador de filas
+            reportRow++;
+          }
+        }
+      }
+      
+      // Definir el rango de la hoja
+      const range = { s: { c: 0, r: 0 }, e: { c: headers.length - 1, r: reportRow - 1 } };
+      ws["!ref"] = XLSX.utils.encode_range(range);
+      
+      // Ajustar anchos de columna
+      ws["!cols"] = [
+        { wch: 10 }, // Posición
+        { wch: 30 }, // Puesto
+        { wch: 15 }, // Color de Fondo
+        { wch: 15 }, // Color de Texto
+        { wch: 30 }  // Servicio
+      ];
+      
+      // Crear un libro de trabajo y agregar la hoja
+      const wb = { SheetNames: ["Informe Detallado"], Sheets: { "Informe Detallado": ws } };
+      
+      // Escribir el archivo y descargarlo
+      const wbout = XLSX.write(wb, { bookType: "xlsx", type: "binary" });
+      
+      // Función para convertir string a ArrayBuffer
+      function s2ab(s) {
+        const buf = new ArrayBuffer(s.length);
+        const view = new Uint8Array(buf);
+        for (let i = 0; i < s.length; i++) view[i] = s.charCodeAt(i) & 0xff;
+        return buf;
+      }
+      
+      // Crear un enlace para descargar
+      const blob = new Blob([s2ab(wbout)], { type: "application/octet-stream" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "informe_puestos.xlsx";
+      document.body.appendChild(a);
+      a.click();
+      setTimeout(() => {
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+      }, 0);
+      
+      updateStatus("Informe detallado exportado correctamente a Excel");
+    } catch (error) {
+      console.error("Error al exportar informe:", error);
+      updateStatus("Error al exportar informe: " + error.message);
+    }
+  }
 
 // Guardar en localStorage
 function saveToLocalStorage() {
