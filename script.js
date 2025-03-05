@@ -938,7 +938,6 @@ function sheetToGrid(sheet) {
 
       row.push(cellObj)
     }
-    grid.push(row)
   }
 
   // Segunda pasada para tratar de inferir servicios de celdas cercanas
@@ -1216,7 +1215,7 @@ function resetGrid() {
 }
 
 // Exportar datos
-// Mejorar la función exportData para incluir colores y servicio
+// Modificar la función exportData para usar métodos más básicos de XLSX
 function exportData() {
   try {
     updateStatus("Preparando exportación a Excel...")
@@ -1256,58 +1255,18 @@ function exportData() {
         const cellRef = XLSX.utils.encode_cell({ r, c })
 
         // Crear objeto de celda
-        let cellValue = cell.value
-
-        // Si hay servicio, incluirlo en el valor de la celda
-        if (cell.service) {
-          cellValue = cellValue ? `${cellValue}\nServicio: ${cell.service}` : `Servicio: ${cell.service}`
-        }
-
-        ws[cellRef] = { v: cellValue }
+        ws[cellRef] = { v: cell.value }
 
         // Determinar el tipo de celda
-        if (cellValue === null)
+        if (cell.value === null)
           ws[cellRef].t = "z" // Nulo
-        else if (typeof cellValue === "number")
+        else if (typeof cell.value === "number")
           ws[cellRef].t = "n" // Número
-        else if (typeof cellValue === "boolean")
+        else if (typeof cell.value === "boolean")
           ws[cellRef].t = "b" // Booleano
-        else if (cellValue instanceof Date)
+        else if (cell.value instanceof Date)
           ws[cellRef].t = "d" // Fecha
         else ws[cellRef].t = "s" // String por defecto
-
-        // Agregar estilos a la celda
-        ws[cellRef].s = {}
-
-        // Agregar color de fondo
-        if (cell.bgColor) {
-          ws[cellRef].s.fill = {
-            patternType: "solid",
-            fgColor: { rgb: cell.bgColor.replace("#", "") },
-          }
-        }
-
-        // Agregar color de texto
-        if (cell.fontColor) {
-          ws[cellRef].s.font = {
-            color: { rgb: cell.fontColor.replace("#", "") },
-          }
-        }
-
-        // Agregar alineación
-        if (cell.hAlign || cell.vAlign) {
-          ws[cellRef].s.alignment = {
-            horizontal: cell.hAlign || "center",
-            vertical: cell.vAlign || "middle",
-            wrapText: true, // Permitir texto en varias líneas para el servicio
-          }
-        } else {
-          ws[cellRef].s.alignment = {
-            horizontal: "center",
-            vertical: "middle",
-            wrapText: true,
-          }
-        }
       }
     }
 
@@ -1317,10 +1276,6 @@ function exportData() {
 
     // Agregar información de combinaciones
     ws["!merges"] = merges
-
-    // Agregar información de columnas y filas
-    if (sheetProps.cols.length > 0) ws["!cols"] = sheetProps.cols
-    if (sheetProps.rows.length > 0) ws["!rows"] = sheetProps.rows
 
     // Crear un libro de trabajo y agregar la hoja
     const wb = { SheetNames: ["Mapa de Puestos"], Sheets: { "Mapa de Puestos": ws } }
