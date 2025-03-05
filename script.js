@@ -938,6 +938,7 @@ function sheetToGrid(sheet) {
 
       row.push(cellObj)
     }
+    grid.push(row)
   }
 
   // Segunda pasada para tratar de inferir servicios de celdas cercanas
@@ -1215,27 +1216,143 @@ function resetGrid() {
 }
 
 // Exportar datos
+// Mejorar la función exportData para incluir colores y servicio
 function exportData() {
   try {
-    const dataStr = JSON.stringify({
-      gridData: gridData,
-      merges: merges,
-      sheetProps: sheetProps,
+    updateStatus("Preparando exportación a Excel...")
+
+    // Determinar el tamaño de la cuadrícula
+    const maxRows = gridData.length
+    const maxCols = Math.max(...gridData.map((row) => row.length))
+
+    // Crear una hoja de trabajo vacía
+    const ws = {}
+
+    // Crear una matriz para rastrear qué celdas están en combinaciones
+    const skip = Array(maxRows)
+      .fill()
+      .map(() => Array(maxCols).fill(false))
+
+    // Marcar celdas a omitir debido a combinaciones
+    merges.forEach((m) => {
+      for (let r = m.s.r; r <= m.e.r; r++) {
+        for (let c = m.s.c; c <= m.e.c; c++) {
+          if (r === m.s.r && c === m.s.c) continue // No omitir la celda principal
+          skip[r][c] = true
+        }
+      }
     })
 
-    const dataUri = "data:application/json;charset=utf-8," + encodeURIComponent(dataStr)
+    // Llenar la hoja con los datos
+    for (let r = 0; r < maxRows; r++) {
+      for (let c = 0; c < maxCols; c++) {
+        // Si esta celda debe omitirse debido a una combinación, saltar
+        if (skip[r][c]) continue
 
-    const exportFileDefaultName = "mapa_puestos.json"
+        // Obtener los datos de la celda
+        const cell = gridData[r] && gridData[r][c] ? gridData[r][c] : { value: "" }
 
-    const linkElement = document.createElement("a")
-    linkElement.setAttribute("href", dataUri)
-    linkElement.setAttribute("download", exportFileDefaultName)
-    linkElement.click()
+        // Convertir coordenadas numéricas a referencia de celda (A1, B2, etc.)
+        const cellRef = XLSX.utils.encode_cell({ r, c })
 
-    updateStatus("Datos exportados correctamente")
+        // Crear objeto de celda
+        let cellValue = cell.value
+
+        // Si hay servicio, incluirlo en el valor de la celda
+        if (cell.service) {
+          cellValue = cellValue ? `${cellValue}\nServicio: ${cell.service}` : `Servicio: ${cell.service}`
+        }
+
+        ws[cellRef] = { v: cellValue }
+
+        // Determinar el tipo de celda
+        if (cellValue === null)
+          ws[cellRef].t = "z" // Nulo
+        else if (typeof cellValue === "number")
+          ws[cellRef].t = "n" // Número
+        else if (typeof cellValue === "boolean")
+          ws[cellRef].t = "b" // Booleano
+        else if (cellValue instanceof Date)
+          ws[cellRef].t = "d" // Fecha
+        else ws[cellRef].t = "s" // String por defecto
+
+        // Agregar estilos a la celda
+        ws[cellRef].s = {}
+
+        // Agregar color de fondo
+        if (cell.bgColor) {
+          ws[cellRef].s.fill = {
+            patternType: "solid",
+            fgColor: { rgb: cell.bgColor.replace("#", "") },
+          }
+        }
+
+        // Agregar color de texto
+        if (cell.fontColor) {
+          ws[cellRef].s.font = {
+            color: { rgb: cell.fontColor.replace("#", "") },
+          }
+        }
+
+        // Agregar alineación
+        if (cell.hAlign || cell.vAlign) {
+          ws[cellRef].s.alignment = {
+            horizontal: cell.hAlign || "center",
+            vertical: cell.vAlign || "middle",
+            wrapText: true, // Permitir texto en varias líneas para el servicio
+          }
+        } else {
+          ws[cellRef].s.alignment = {
+            horizontal: "center",
+            vertical: "middle",
+            wrapText: true,
+          }
+        }
+      }
+    }
+
+    // Definir el rango de la hoja
+    const range = { s: { c: 0, r: 0 }, e: { c: maxCols - 1, r: maxRows - 1 } }
+    ws["!ref"] = XLSX.utils.encode_range(range)
+
+    // Agregar información de combinaciones
+    ws["!merges"] = merges
+
+    // Agregar información de columnas y filas
+    if (sheetProps.cols.length > 0) ws["!cols"] = sheetProps.cols
+    if (sheetProps.rows.length > 0) ws["!rows"] = sheetProps.rows
+
+    // Crear un libro de trabajo y agregar la hoja
+    const wb = { SheetNames: ["Mapa de Puestos"], Sheets: { "Mapa de Puestos": ws } }
+
+    // Escribir el archivo y descargarlo
+    const wbout = XLSX.write(wb, { bookType: "xlsx", type: "binary" })
+
+    // Función para convertir string a ArrayBuffer
+    function s2ab(s) {
+      const buf = new ArrayBuffer(s.length)
+      const view = new Uint8Array(buf)
+      for (let i = 0; i < s.length; i++) view[i] = s.charCodeAt(i) & 0xff
+      return buf
+    }
+
+    // Crear un enlace para descargar
+    const blob = new Blob([s2ab(wbout)], { type: "application/octet-stream" })
+    const url = URL.createObjectURL(blob)
+    const a = document.createElement("a")
+    a.href = url
+    a.download = "mapa_puestos.xlsx"
+    document.body.appendChild(a)
+    a.click()
+    setTimeout(() => {
+      document.body.removeChild(a)
+      URL.revokeObjectURL(url)
+    }, 0)
+
+    updateStatus("Datos exportados correctamente a Excel")
   } catch (error) {
     console.error("Error al exportar datos:", error)
-    updateStatus("Error al exportar datos")
+    updateStatus("Error al exportar datos: " + error.message)
   }
 }
 
